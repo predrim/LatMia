@@ -1,9 +1,15 @@
 <!DOCTYPE html>
+
 <html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="/css/base.css">
     <link rel="stylesheet" href="/css/login.css">
     <title>LatMia</title>
@@ -12,32 +18,38 @@
 <body>
     <div class="side-bar">
         <div class="logo-background"> <img src="assets/images/logo_dog_and_cat.webp" alt="logo" class="logo-img"></div>
+        <p class="side-tagline">Cada patinha merece<br>um lar para chamar de seu</p>
     </div>
     <main>
-        <p class="intro-text">Lar de adoção para cães e gatos</p>
+        <div class="content-wrap">
+            <span class="eyebrow">🐾 Bem-vindo de volta</span>
+            <p class="intro-text">Lar de adoção para cães e gatos</p>
+            <p class="intro-subtext">Entre na sua conta para acompanhar adoções, atualizar perfis de pets e encontrar o
+                match perfeito para cada família.</p>
 
-        <form action="#" method="get">
-            <div class="form-container">
+            <form action="#" method="get">
+                <div class="form-container">
 
-                <span class="form-title">Entre em sua conta</span>
+                    <span class="form-title">Entre em sua conta</span>
 
-                <div class="input-group">
                     <div class="input-container">
                         <label for="user-email">EMAIL</label>
-                        <input type="email" name="user-email" id="user-email" required>
+                        <input type="email" name="user-email" id="user-email" placeholder="voce@exemplo.com" required>
                     </div>
+
                     <div class="input-container">
                         <label for="user-password">SENHA</label>
-                        <input type="password" name="user-password" id="user-password" required>
+                        <input type="password" name="user-password" id="user-password" placeholder="••••••••" required>
                     </div>
 
                 </div>
+                <div class="button-container">
+                    <button type="submit" class="submit-button">Entrar</button>
+                </div>
+            </form>
+        </div>
 
-            </div>
-            <div class="button-container">
-                <button type="submit" class="submit-button">Log In</button>
-            </div>
-        </form>
+        <p class="footer-note">© 2026 LatMia · Adoção responsável de cães e gatos</p>
     </main>
 </body>
 
