@@ -28,7 +28,6 @@ body {
     background-size: cover;
 }
 
-/* darkens the bottom of the photo so the tagline stays legible */
 .side-bar::after {
     content: "";
     position: absolute;

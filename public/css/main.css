@@ -1,6 +1,17 @@
-body{
+:root {
+    --color-orange: #F77B18;
+    --color-blue: #2559A6;
+    --color-navy: #1B3A4B;
+    --color-cream: #FFFBF5;
+    --color-text-muted: #6B7280;
+    --color-border: #E5E7EB;
+}
+
+body {
     max-width: 100%;
     overflow-x: hidden;
+    background-image: radial-gradient(circle at 1px 1px, rgba(37, 89, 166, 0.07) 1px, transparent 0);
+    background-size: 24px 24px;
 }
 
 header {
@@ -8,7 +19,9 @@ header {
     max-height: 5rem;
     align-items: center;
     justify-content: space-between;
-    padding: 0.7rem 8% 0.7rem 5%;
+    background-color: var(--color-cream);
+
+    padding: 0.7rem 13% 0.7rem 5%;
 }
 
 header img {
@@ -70,7 +83,7 @@ header span {
     object-position: center;
 }
 
-.animal_grid{
+.animal_grid {
     padding: 0 5%;
 }
 
