@@ -1,0 +1,281 @@
+:root {
+    --color-navy:  #1B3A4B;
+    --color-cream: #FFFBF5;
+}
+
+/* ── HEADER OVERRIDES ──────────────────────────── */
+
+.header-logo {
+    margin-right: auto;
+}
+
+.site-header .header-search button,
+.btn-primary {
+    background: var(--color-navy);
+}
+
+/* ── PAGE LAYOUT ───────────────────────────────── */
+
+body {
+    background: var(--color-cream);
+    background-image: radial-gradient(circle at 1px 1px, rgba(37, 89, 166, 0.06) 1px, transparent 0);
+    background-size: 24px 24px;
+}
+
+main {
+    max-width: 720px;
+    margin: 2.5rem auto 5rem;
+    padding: 0 1.5rem;
+}
+
+.page-title {
+    margin-bottom: 2rem;
+}
+
+.page-title h1 {
+    font-family: 'Baloo 2', sans-serif;
+    font-size: 1.9rem;
+    font-weight: 800;
+    color: var(--color-navy);
+    margin: 0 0 0.3rem;
+}
+
+.page-title p {
+    color: var(--color-text-muted, #6B7280);
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+/* ── FORM SECTIONS ─────────────────────────────── */
+
+.listing-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.form-section {
+    background: white;
+    border: 1px solid var(--color-border, #E5E7EB);
+    border-radius: 10px;
+    padding: 1.75rem;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+}
+
+.section-title {
+    font-family: 'Baloo 2', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--color-navy);
+    margin: 0 0 0.3rem;
+}
+
+.section-hint {
+    font-size: 0.82rem;
+    color: var(--color-text-muted, #6B7280);
+    margin: 0 0 1.25rem;
+}
+
+/* ── PHOTO GRID ────────────────────────────────── */
+
+.photo-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 0.6rem;
+}
+
+.photo-slot {
+    position: relative;
+    border: 2px dashed var(--color-border, #E5E7EB);
+    border-radius: 8px;
+    cursor: pointer;
+    overflow: hidden;
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: border-color 0.15s, background 0.15s;
+}
+
+.photo-slot:hover {
+    border-color: var(--color-navy);
+    background: #f5f7f9;
+}
+
+.photo-slot--primary {
+    grid-row: span 2;
+    aspect-ratio: unset;
+}
+
+.photo-input {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+}
+
+.photo-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+    color: #9CA3AF;
+    font-size: 0.78rem;
+    font-weight: 500;
+    pointer-events: none;
+    text-align: center;
+    padding: 1rem;
+}
+
+.photo-icon {
+    font-size: 1.5rem;
+}
+
+.photo-slot--primary .photo-icon {
+    font-size: 2.2rem;
+}
+
+/* ── FIELDS ────────────────────────────────────── */
+
+.field-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.field-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.field-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    color: var(--color-text-muted, #6B7280);
+    text-transform: uppercase;
+}
+
+.required {
+    color: #DC2626;
+}
+
+.field-input {
+    border: 1px solid var(--color-border, #E5E7EB);
+    border-radius: 6px;
+    padding: 0.55rem 0.8rem;
+    font-size: 0.9rem;
+    font-family: 'Inter', sans-serif;
+    color: #1F2937;
+    background: white;
+    outline: none;
+    transition: border-color 0.15s, box-shadow 0.15s;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.field-input:focus {
+    border-color: var(--color-navy);
+    box-shadow: 0 0 0 3px rgba(27, 58, 75, 0.1);
+}
+
+.field-textarea {
+    resize: vertical;
+    min-height: 130px;
+    line-height: 1.55;
+}
+
+.char-counter {
+    font-size: 0.75rem;
+    color: #9CA3AF;
+    text-align: right;
+    margin-top: 0.25rem;
+}
+
+/* ── ESPÉCIE TOGGLE ────────────────────────────── */
+
+.toggle-group {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.toggle-option {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.toggle-option input[type="radio"] {
+    display: none;
+}
+
+.toggle-option span {
+    display: inline-block;
+    border: 2px solid var(--color-border, #E5E7EB);
+    border-radius: 8px;
+    padding: 0.5rem 1.4rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #4B5563;
+    transition: all 0.15s;
+    user-select: none;
+}
+
+.toggle-option input[type="radio"]:checked + span {
+    border-color: var(--color-navy);
+    background: var(--color-navy);
+    color: white;
+}
+
+.toggle-option:hover span {
+    border-color: var(--color-navy);
+    color: var(--color-navy);
+}
+
+/* ── ACTIONS ───────────────────────────────────── */
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 1rem;
+    padding-bottom: 1rem;
+}
+
+.btn-primary {
+    border: none;
+    border-radius: 6px;
+    color: white;
+    font-weight: 700;
+    font-size: 0.95rem;
+    font-family: 'Inter', sans-serif;
+    padding: 0.75rem 2rem;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(27, 58, 75, 0.2);
+    transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 14px rgba(27, 58, 75, 0.3);
+}
+
+.btn-secondary {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #6B7280;
+    text-decoration: none;
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+    transition: background 0.15s;
+}
+
+.btn-secondary:hover {
+    background: #F3F4F6;
+    color: #374151;
+}

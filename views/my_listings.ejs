@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/my_listings.css">
+    <title>LatMia – Meus anúncios</title>
+</head>
+
+<body>
+    <header class="site-header">
+        <span class="header-logo">
+            <img src="/assets/images/logo_dog_and_cat.webp" alt="LatMia">
+        </span>
+        <nav class="header-nav">
+            <a href="/gatos">🐱 Gatos</a>
+            <a href="/caes">🐶 Cães</a>
+            <a href="/anunciar" class="nav-cta">+ Anunciar</a>
+            <a href="/perfil" class="nav-profile">Perfil</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="page-header">
+            <div>
+                <h1>Meus anúncios</h1>
+                <p>Gerencie os animais que você colocou para adoção.</p>
+            </div>
+            <a href="/anunciar" class="btn-primary">+ Novo anúncio</a>
+        </div>
+
+        <!-- ── STATS ───────────────────────────────── -->
+        <div class="stats-row">
+            <div class="stat-card">
+                <span class="stat-number">8</span>
+                <span class="stat-label">Total</span>
+            </div>
+            <div class="stat-card stat-card--green">
+                <span class="stat-number">5</span>
+                <span class="stat-label">Disponíveis</span>
+            </div>
+            <div class="stat-card stat-card--blue">
+                <span class="stat-number">2</span>
+                <span class="stat-label">Adotados</span>
+            </div>
+            <div class="stat-card stat-card--gray">
+                <span class="stat-number">1</span>
+                <span class="stat-label">Pausados</span>
+            </div>
+        </div>
+
+        <!-- ── FILTER TABS ─────────────────────────── -->
+        <div class="tab-bar">
+            <button class="tab active" data-filter="todos">Todos <span class="tab-count">8</span></button>
+            <button class="tab" data-filter="disponivel">Disponíveis <span class="tab-count">5</span></button>
+            <button class="tab" data-filter="adotado">Adotados <span class="tab-count">2</span></button>
+            <button class="tab" data-filter="pausado">Pausados <span class="tab-count">1</span></button>
+        </div>
+
+        <!-- ── LISTINGS ────────────────────────────── -->
+        <div class="listings-list">
+
+            <div class="listing-card" data-status="disponivel">
+                <a href="/animal/1" class="listing-photo-wrap">
+                    <img src="/assets/images/racas-de-cachorro-shihtzu-04.jpg" alt="Mel">
+                </a>
+                <div class="listing-info">
+                    <div class="listing-main">
+                        <div>
+                            <div class="listing-name-row">
+                                <h3>Mel</h3>
+                                <span class="status-badge status-disponivel">Disponível</span>
+                            </div>
+                            <p class="listing-meta">🐶 Shih Tzu · Fêmea · 6 meses · Pequeno porte</p>
+                            <p class="listing-date">Publicado em 12 jun. 2026</p>
+                        </div>
+                        <div class="listing-stats">
+                            <span title="Visualizações">👁 34</span>
+                            <span title="Pedidos de adoção">📋 2 pedidos</span>
+                        </div>
+                    </div>
+                    <div class="listing-actions">
+                        <a href="/animal/1/pedidos" class="action-btn action-btn--pedidos">Ver pedidos</a>
+                        <a href="/animal/1/editar" class="action-btn">Editar</a>
+                        <button class="action-btn action-btn--pause" data-id="1">Pausar</button>
+                        <button class="action-btn action-btn--delete" data-id="1">Excluir</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="listing-card" data-status="disponivel">
+                <a href="/animal/2" class="listing-photo-wrap">
+                    <img src="/assets/images/sillycat.jpg" alt="Simba">
+                </a>
+                <div class="listing-info">
+                    <div class="listing-main">
+                        <div>
+                            <div class="listing-name-row">
+                                <h3>Simba</h3>
+                                <span class="status-badge status-disponivel">Disponível</span>
+                            </div>
+                            <p class="listing-meta">🐱 Siamês · Macho · 3 meses · Pequeno porte</p>
+                            <p class="listing-date">Publicado em 10 jun. 2026</p>
+                        </div>
+                        <div class="listing-stats">
+                            <span title="Visualizações">👁 21</span>
+                            <span title="Pedidos de adoção">📋 1 pedido</span>
+                        </div>
+                    </div>
+                    <div class="listing-actions">
+                        <a href="/animal/2/pedidos" class="action-btn action-btn--pedidos">Ver pedidos</a>
+                        <a href="/animal/2/editar" class="action-btn">Editar</a>
+                        <button class="action-btn action-btn--pause" data-id="2">Pausar</button>
+                        <button class="action-btn action-btn--delete" data-id="2">Excluir</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="listing-card" data-status="disponivel">
+                <a href="/animal/3" class="listing-photo-wrap">
+                    <img src="/assets/images/racas-de-cachorro-shihtzu-04.jpg" alt="Thor">
+                </a>
+                <div class="listing-info">
+                    <div class="listing-main">
+                        <div>
+                            <div class="listing-name-row">
+                                <h3>Thor</h3>
+                                <span class="status-badge status-disponivel">Disponível</span>
+                            </div>
+                            <p class="listing-meta">🐶 Labrador · Macho · 18 meses · Grande porte</p>
+                            <p class="listing-date">Publicado em 8 jun. 2026</p>
+                        </div>
+                        <div class="listing-stats">
+                            <span title="Visualizações">👁 57</span>
+                            <span title="Pedidos de adoção">📋 4 pedidos</span>
+                        </div>
+                    </div>
+                    <div class="listing-actions">
+                        <a href="/animal/3/pedidos" class="action-btn action-btn--pedidos">Ver pedidos</a>
+                        <a href="/animal/3/editar" class="action-btn">Editar</a>
+                        <button class="action-btn action-btn--pause" data-id="3">Pausar</button>
+                        <button class="action-btn action-btn--delete" data-id="3">Excluir</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="listing-card" data-status="adotado">
+                <a href="/animal/4" class="listing-photo-wrap">
+                    <img src="/assets/images/sillycat.jpg" alt="Luna">
+                    <div class="photo-overlay">Adotado 🎉</div>
+                </a>
+                <div class="listing-info">
+                    <div class="listing-main">
+                        <div>
+                            <div class="listing-name-row">
+                                <h3>Luna</h3>
+                                <span class="status-badge status-adotado">Adotado</span>
+                            </div>
+                            <p class="listing-meta">🐱 Persa · Fêmea · 24 meses · Médio porte</p>
+                            <p class="listing-date">Adotada em 5 jun. 2026</p>
+                        </div>
+                        <div class="listing-stats">
+                            <span title="Visualizações">👁 93</span>
+                            <span title="Pedidos de adoção">📋 6 pedidos</span>
+                        </div>
+                    </div>
+                    <div class="listing-actions">
+                        <a href="/animal/4/pedidos" class="action-btn">Ver histórico</a>
+                        <button class="action-btn action-btn--delete" data-id="4">Excluir</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="listing-card" data-status="adotado">
+                <a href="/animal/5" class="listing-photo-wrap">
+                    <img src="/assets/images/racas-de-cachorro-shihtzu-04.jpg" alt="Bolt">
+                    <div class="photo-overlay">Adotado 🎉</div>
+                </a>
+                <div class="listing-info">
+                    <div class="listing-main">
+                        <div>
+                            <div class="listing-name-row">
+                                <h3>Bolt</h3>
+                                <span class="status-badge status-adotado">Adotado</span>
+                            </div>
+                            <p class="listing-meta">🐶 Border Collie · Macho · 12 meses · Médio porte</p>
+                            <p class="listing-date">Adotado em 1 jun. 2026</p>
+                        </div>
+                        <div class="listing-stats">
+                            <span title="Visualizações">👁 112</span>
+                            <span title="Pedidos de adoção">📋 8 pedidos</span>
+                        </div>
+                    </div>
+                    <div class="listing-actions">
+                        <a href="/animal/5/pedidos" class="action-btn">Ver histórico</a>
+                        <button class="action-btn action-btn--delete" data-id="5">Excluir</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="listing-card" data-status="pausado">
+                <a href="/animal/6" class="listing-photo-wrap listing-photo-wrap--paused">
+                    <img src="/assets/images/sillycat.jpg" alt="Nala">
+                </a>
+                <div class="listing-info">
+                    <div class="listing-main">
+                        <div>
+                            <div class="listing-name-row">
+                                <h3>Nala</h3>
+                                <span class="status-badge status-pausado">Pausado</span>
+                            </div>
+                            <p class="listing-meta">🐱 Ragdoll · Fêmea · 36 meses · Médio porte</p>
+                            <p class="listing-date">Pausado em 15 mai. 2026</p>
+                        </div>
+                        <div class="listing-stats">
+                            <span title="Visualizações">👁 8</span>
+                            <span title="Pedidos de adoção">📋 0 pedidos</span>
+                        </div>
+                    </div>
+                    <div class="listing-actions">
+                        <button class="action-btn action-btn--activate" data-id="6">Reativar</button>
+                        <a href="/animal/6/editar" class="action-btn">Editar</a>
+                        <button class="action-btn action-btn--delete" data-id="6">Excluir</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- ── EMPTY STATE (hidden by default) ────── -->
+        <div class="empty-state" id="empty-state" style="display:none;">
+            <span class="empty-icon">🐾</span>
+            <p>Nenhum anúncio nessa categoria.</p>
+            <a href="/cadastro" class="btn-primary">Criar anúncio</a>
+        </div>
+
+    </main>
+
+    <!-- ── CONFIRM DELETE MODAL ────────────────── -->
+    <div class="modal-backdrop" id="modal-backdrop">
+        <div class="modal">
+            <h3>Excluir anúncio?</h3>
+            <p>Esta ação é permanente e não poderá ser desfeita.</p>
+            <div class="modal-actions">
+                <button class="action-btn" id="modal-cancel">Cancelar</button>
+                <button class="action-btn action-btn--delete-confirm" id="modal-confirm">Sim, excluir</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ── TAB FILTER ──────────────────────────────────
+        const tabs    = document.querySelectorAll('.tab');
+        const cards   = document.querySelectorAll('.listing-card');
+        const empty   = document.getElementById('empty-state');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+
+                const filter = tab.dataset.filter;
+                let visible = 0;
+
+                cards.forEach(card => {
+                    const show = filter === 'todos' || card.dataset.status === filter;
+                    card.style.display = show ? '' : 'none';
+                    if (show) visible++;
+                });
+
+                empty.style.display = visible === 0 ? 'flex' : 'none';
+            });
+        });
+
+        // ── DELETE MODAL ────────────────────────────────
+        const backdrop = document.getElementById('modal-backdrop');
+        let pendingId  = null;
+
+        document.querySelectorAll('.action-btn--delete').forEach(btn => {
+            btn.addEventListener('click', () => {
+                pendingId = btn.dataset.id;
+                backdrop.classList.add('active');
+            });
+        });
+
+        document.getElementById('modal-cancel').addEventListener('click', () => {
+            backdrop.classList.remove('active');
+            pendingId = null;
+        });
+
+        document.getElementById('modal-confirm').addEventListener('click', () => {
+            if (pendingId) {
+                const card = document.querySelector(`.action-btn--delete[data-id="${pendingId}"]`).closest('.listing-card');
+                card.style.animation = 'fadeOut 0.3s ease forwards';
+                setTimeout(() => card.remove(), 300);
+            }
+            backdrop.classList.remove('active');
+            pendingId = null;
+        });
+
+        // ── PAUSE / REACTIVATE ──────────────────────────
+        document.querySelectorAll('.action-btn--pause').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const card = btn.closest('.listing-card');
+                card.dataset.status = 'pausado';
+                card.querySelector('.status-badge').textContent  = 'Pausado';
+                card.querySelector('.status-badge').className    = 'status-badge status-pausado';
+                card.querySelector('.listing-photo-wrap').classList.add('listing-photo-wrap--paused');
+                btn.className   = 'action-btn action-btn--activate';
+                btn.textContent = 'Reativar';
+            });
+        });
+
+        document.querySelectorAll('.action-btn--activate').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const card = btn.closest('.listing-card');
+                card.dataset.status = 'disponivel';
+                card.querySelector('.status-badge').textContent  = 'Disponível';
+                card.querySelector('.status-badge').className    = 'status-badge status-disponivel';
+                card.querySelector('.listing-photo-wrap').classList.remove('listing-photo-wrap--paused');
+                btn.className   = 'action-btn action-btn--pause';
+                btn.textContent = 'Pausar';
+            });
+        });
+    </script>
+</body>
+
+</html>

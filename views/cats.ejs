@@ -12,126 +12,217 @@
     <link rel="stylesheet" href="/css/base.css">
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/cats.css">
-    <title>LatMia</title>
+    <title>LatMia – Gatos para adoção</title>
 </head>
 
 <body>
-    <header>
-        <img src="/assets/images/logo_cat.webp" alt="logo">
-        <span>
-            <a class="switch_page" href="/caes">Cães</a>
-            <a href="/cadastro">Adicionar</a>
-            <a href="/perfil">Perfil</a>
+    <header class="site-header">
+        <span class="header-logo">
+            <img src="/assets/images/logo_cat.webp" alt="LatMia">
         </span>
+
+        <div class="header-search">
+            <input type="search" placeholder="Buscar gato por raça, nome ou localidade…">
+            <button type="button">Buscar</button>
+        </div>
+
+        <nav class="header-nav">
+            <a class="switch_page" href="/caes">🐶 Cães</a>
+            <a href="/meus_anuncios">Meus anúncios</a>
+            <a href="/anunciar" class="nav-cta">+ Anunciar</a>
+            <a href="/perfil" class="nav-profile">Perfil</a>
+        </nav>
     </header>
+
+    <div class="filter-bar">
+        <div class="filter-bar-inner">
+            <span class="filter-label">Filtrar:</span>
+            <button class="filter-chip active">Todos</button>
+            <button class="filter-chip">Filhotes</button>
+            <button class="filter-chip">Adultos</button>
+            <button class="filter-chip">Idosos</button>
+            <button class="filter-chip">Pequeno porte</button>
+            <button class="filter-chip">Médio porte</button>
+            <button class="filter-chip">Grande porte</button>
+            <button class="filter-chip">Macho</button>
+            <button class="filter-chip">Fêmea</button>
+            <div class="filter-divider"></div>
+            <select class="filter-sort">
+                <option>Mais recentes</option>
+                <option>Mais antigos</option>
+                <option>A–Z</option>
+            </select>
+        </div>
+    </div>
+
     <main>
+
         <section class="animal_carousel">
-            <h2>Gatos recentemente listados</h2>
+            <div class="section-header">
+                <h2>Recentemente listados</h2>
+            </div>
             <div class="carousel_items">
 
                 <div class="container">
-                    <div>
-                        <a href="">
-                            <img src="/assets/images/sillycat.jpg">
-                            <h2>GATO miaumiaumiau</h2>
-                        </a>
-                    </div>
+                    <a href="" class="card-link">
+                        <div class="card-img-wrap">
+                            <img src="/assets/images/sillycat.jpg" alt="Siamês macho">
+                            <span class="badge badge-new">Recém listado</span>
+                        </div>
+                        <div class="card-info">
+                            <h3 class="card-name">Simba</h3>
+                            <p class="card-meta">Siamês · Macho · Filhote</p>
+                            <p class="card-location">📍 São Paulo, SP · <span class="card-time">há 1 hora</span></p>
+                        </div>
+                    </a>
                 </div>
 
                 <div class="container">
-                    <div>
-                        <a href="">
-                            <img src="/assets/images/sillycat.jpg">
-                            <h2>GATO miaumiaumiau</h2>
-                        </a>
-                    </div>
+                    <a href="" class="card-link">
+                        <div class="card-img-wrap">
+                            <img src="/assets/images/sillycat.jpg" alt="Persa fêmea">
+                            <span class="badge badge-urgent">Urgente</span>
+                        </div>
+                        <div class="card-info">
+                            <h3 class="card-name">Luna</h3>
+                            <p class="card-meta">Persa · Fêmea · Adulta</p>
+                            <p class="card-location">📍 Rio de Janeiro, RJ · <span class="card-time">há 3 horas</span>
+                            </p>
+                        </div>
+                    </a>
                 </div>
 
                 <div class="container">
-                    <div>
-                        <a href="">
-                            <img src="/assets/images/sillycat.jpg">
-                            <h2>GATO miaumiaumiau</h2>
-                        </a>
-                    </div>
+                    <a href="" class="card-link">
+                        <div class="card-img-wrap">
+                            <img src="/assets/images/sillycat.jpg" alt="Maine Coon macho">
+                        </div>
+                        <div class="card-info">
+                            <h3 class="card-name">Mufasa</h3>
+                            <p class="card-meta">Maine Coon · Macho · Jovem</p>
+                            <p class="card-location">📍 Curitiba, PR · <span class="card-time">há 6 horas</span></p>
+                        </div>
+                    </a>
                 </div>
 
                 <div class="container">
-                    <div>
-                        <a href="">
-                            <img src="/assets/images/sillycat.jpg">
-                            <h2>GATO miaumiaumiau</h2>
-                        </a>
-                    </div>
+                    <a href="" class="card-link">
+                        <div class="card-img-wrap">
+                            <img src="/assets/images/sillycat.jpg" alt="SRD fêmea">
+                            <span class="badge badge-new">Recém listado</span>
+                        </div>
+                        <div class="card-info">
+                            <h3 class="card-name">Mel</h3>
+                            <p class="card-meta">SRD · Fêmea · Filhote</p>
+                            <p class="card-location">📍 Belo Horizonte, MG · <span class="card-time">há 1 dia</span></p>
+                        </div>
+                    </a>
                 </div>
 
                 <div class="container">
-                    <div>
-                        <a href="">
-                            <img src="/assets/images/sillycat.jpg">
-                            <h2>GATO miaumiaumiau</h2>
-                        </a>
-                    </div>
+                    <a href="" class="card-link">
+                        <div class="card-img-wrap">
+                            <img src="/assets/images/sillycat.jpg" alt="Ragdoll fêmea">
+                        </div>
+                        <div class="card-info">
+                            <h3 class="card-name">Nala</h3>
+                            <p class="card-meta">Ragdoll · Fêmea · Adulta</p>
+                            <p class="card-location">📍 Porto Alegre, RS · <span class="card-time">há 2 dias</span></p>
+                        </div>
+                    </a>
                 </div>
+
             </div>
         </section>
 
         <section class="animal_grid">
-            <h2>Gatos brabossss</h2>
+            <div class="section-header">
+                <h2>Todos os gatos disponíveis <span class="result-count">28 resultados</span></h2>
+            </div>
             <div class="grid_items">
+
                 <div class="container">
-                    <div>
-                        <a href="">
-                            <img src="/assets/images/sillycat.jpg">
-                            <h2>GATO miaumiaumiau</h2>
-                        </a>
-                    </div>
+                    <a href="" class="card-link">
+                        <div class="card-img-wrap">
+                            <img src="/assets/images/sillycat.jpg" alt="Siamês macho">
+                            <span class="badge badge-new">Recém listado</span>
+                        </div>
+                        <div class="card-info">
+                            <h3 class="card-name">Simba</h3>
+                            <p class="card-meta">Siamês · Macho · Filhote</p>
+                            <p class="card-location">📍 São Paulo, SP · <span class="card-time">há 1 hora</span></p>
+                        </div>
+                    </a>
                 </div>
 
                 <div class="container">
-                    <div>
-                        <a href="">
-                            <img src="/assets/images/sillycat.jpg">
-                            <h2>GATO miaumiaumiau</h2>
-                        </a>
-                    </div>
+                    <a href="" class="card-link">
+                        <div class="card-img-wrap">
+                            <img src="/assets/images/sillycat.jpg" alt="Persa fêmea">
+                            <span class="badge badge-urgent">Urgente</span>
+                        </div>
+                        <div class="card-info">
+                            <h3 class="card-name">Luna</h3>
+                            <p class="card-meta">Persa · Fêmea · Adulta</p>
+                            <p class="card-location">📍 Rio de Janeiro, RJ · <span class="card-time">há 3 horas</span>
+                            </p>
+                        </div>
+                    </a>
                 </div>
 
                 <div class="container">
-                    <div>
-                        <a href="">
-                            <img src="/assets/images/sillycat.jpg">
-                            <h2>GATO miaumiaumiau</h2>
-                        </a>
-                    </div>
+                    <a href="" class="card-link">
+                        <div class="card-img-wrap">
+                            <img src="/assets/images/sillycat.jpg" alt="Maine Coon macho">
+                        </div>
+                        <div class="card-info">
+                            <h3 class="card-name">Mufasa</h3>
+                            <p class="card-meta">Maine Coon · Macho · Jovem</p>
+                            <p class="card-location">📍 Curitiba, PR · <span class="card-time">há 6 horas</span></p>
+                        </div>
+                    </a>
                 </div>
 
                 <div class="container">
-                    <div>
-                        <a href="">
-                            <img src="/assets/images/sillycat.jpg">
-                            <h2>GATO miaumiaumiau</h2>
-                        </a>
-                    </div>
+                    <a href="" class="card-link">
+                        <div class="card-img-wrap">
+                            <img src="/assets/images/sillycat.jpg" alt="SRD fêmea">
+                        </div>
+                        <div class="card-info">
+                            <h3 class="card-name">Mel</h3>
+                            <p class="card-meta">SRD · Fêmea · Filhote</p>
+                            <p class="card-location">📍 Belo Horizonte, MG · <span class="card-time">há 1 dia</span></p>
+                        </div>
+                    </a>
                 </div>
 
                 <div class="container">
-                    <div>
-                        <a href="">
-                            <img src="/assets/images/sillycat.jpg">
-                            <h2>GATO miaumiaumiau</h2>
-                        </a>
-                    </div>
+                    <a href="" class="card-link">
+                        <div class="card-img-wrap">
+                            <img src="/assets/images/sillycat.jpg" alt="Ragdoll fêmea">
+                        </div>
+                        <div class="card-info">
+                            <h3 class="card-name">Nala</h3>
+                            <p class="card-meta">Ragdoll · Fêmea · Adulta</p>
+                            <p class="card-location">📍 Porto Alegre, RS · <span class="card-time">há 2 dias</span></p>
+                        </div>
+                    </a>
                 </div>
 
                 <div class="container">
-                    <div>
-                        <a href="">
-                            <img src="/assets/images/sillycat.jpg">
-                            <h2>GATO miaumiaumiau</h2>
-                        </a>
-                    </div>
+                    <a href="" class="card-link">
+                        <div class="card-img-wrap">
+                            <img src="/assets/images/sillycat.jpg" alt="Angorá macho">
+                            <span class="badge badge-urgent">Urgente</span>
+                        </div>
+                        <div class="card-info">
+                            <h3 class="card-name">Léo</h3>
+                            <p class="card-meta">Angorá · Macho · Adulto</p>
+                            <p class="card-location">📍 Brasília, DF · <span class="card-time">há 3 dias</span></p>
+                        </div>
+                    </a>
                 </div>
+
             </div>
         </section>
 

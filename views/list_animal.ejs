@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/list_animal.css">
+    <title>LatMia – Anunciar animal</title>
+</head>
+
+<body>
+    <header class="site-header">
+        <span class="header-logo">
+            <img src="/assets/images/logo_dog_and_cat.webp" alt="LatMia">
+        </span>
+        <nav class="header-nav">
+            <a class="switch_page" href="/gatos">🐱 Gatos</a>
+            <a class="switch_page" href="/caes">🐶 Cães</a>
+            <a href="/meus_anuncios">Meus anúncios</a>
+            <a href="/perfil" class="nav-profile">Perfil</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="page-title">
+            <h1>Anunciar animal</h1>
+            <p>Preencha as informações abaixo para encontrar um novo lar para o seu pet.</p>
+        </div>
+
+        <form action="#" method="post" enctype="multipart/form-data" class="listing-form">
+
+            <section class="form-section">
+                <h2 class="section-title">Fotos</h2>
+                <p class="section-hint">Adicione até 6 fotos. A primeira será a foto principal do anúncio.</p>
+
+                <div class="photo-grid">
+                    <label class="photo-slot photo-slot--primary" for="photo-0">
+                        <input type="file" id="photo-0" name="fotos[]" accept="image/*" class="photo-input">
+                        <div class="photo-placeholder">
+                            <span class="photo-icon">📷</span>
+                            <span>Foto principal</span>
+                        </div>
+                    </label>
+                    <label class="photo-slot" for="photo-1">
+                        <input type="file" id="photo-1" name="fotos[]" accept="image/*" class="photo-input">
+                        <div class="photo-placeholder">
+                            <span class="photo-icon">+</span>
+                        </div>
+                    </label>
+                    <label class="photo-slot" for="photo-2">
+                        <input type="file" id="photo-2" name="fotos[]" accept="image/*" class="photo-input">
+                        <div class="photo-placeholder">
+                            <span class="photo-icon">+</span>
+                        </div>
+                    </label>
+                    <label class="photo-slot" for="photo-3">
+                        <input type="file" id="photo-3" name="fotos[]" accept="image/*" class="photo-input">
+                        <div class="photo-placeholder">
+                            <span class="photo-icon">+</span>
+                        </div>
+                    </label>
+                    <label class="photo-slot" for="photo-4">
+                        <input type="file" id="photo-4" name="fotos[]" accept="image/*" class="photo-input">
+                        <div class="photo-placeholder">
+                            <span class="photo-icon">+</span>
+                        </div>
+                    </label>
+                    <label class="photo-slot" for="photo-5">
+                        <input type="file" id="photo-5" name="fotos[]" accept="image/*" class="photo-input">
+                        <div class="photo-placeholder">
+                            <span class="photo-icon">+</span>
+                        </div>
+                    </label>
+                </div>
+            </section>
+
+            <section class="form-section">
+                <h2 class="section-title">Informações básicas</h2>
+
+                <div class="field-group">
+                    <label class="field-label">Espécie <span class="required">*</span></label>
+                    <div class="toggle-group">
+                        <label class="toggle-option">
+                            <input type="radio" name="especie" value="cao" required>
+                            <span>🐶 Cão</span>
+                        </label>
+                        <label class="toggle-option">
+                            <input type="radio" name="especie" value="gato">
+                            <span>🐱 Gato</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="field-row">
+                    <div class="field-group">
+                        <label class="field-label" for="nome">Nome do animal</label>
+                        <input type="text" id="nome" name="nome" class="field-input" placeholder="Ex: Mel, Thor, Luna…">
+                    </div>
+
+                    <div class="field-group">
+                        <label class="field-label" for="cor">Cor / pelagem</label>
+                        <input type="text" id="cor" name="cor" class="field-input"
+                            placeholder="Ex: Caramelo, Preto e branco…">
+                    </div>
+                </div>
+
+                <div class="field-row">
+                    <div class="field-group">
+                        <label class="field-label" for="sexo">Sexo</label>
+                        <select id="sexo" name="sexo" class="field-input">
+                            <option value="" disabled selected>Selecione…</option>
+                            <option value="macho">Macho</option>
+                            <option value="femea">Fêmea</option>
+                        </select>
+                    </div>
+
+                    <div class="field-group">
+                        <label class="field-label" for="porte">Porte</label>
+                        <select id="porte" name="porte" class="field-input">
+                            <option value="" disabled selected>Selecione…</option>
+                            <option value="pequeno">Pequeno</option>
+                            <option value="medio">Médio</option>
+                            <option value="grande">Grande</option>
+                        </select>
+                    </div>
+
+                    <div class="field-group">
+                        <label class="field-label" for="idade_meses">Idade (em meses)</label>
+                        <input type="number" id="idade_meses" name="idade_meses" class="field-input" min="0" max="300"
+                            placeholder="Ex: 6">
+                    </div>
+                </div>
+            </section>
+
+            <section class="form-section">
+                <h2 class="section-title">Descrição</h2>
+                <p class="section-hint">Conte um pouco sobre a personalidade, saúde, vacinas e por que está procurando
+                    um novo lar.</p>
+
+                <div class="field-group">
+                    <textarea id="descricao" name="descricao" class="field-input field-textarea"
+                        placeholder="Ex: A Mel é uma Shih Tzu de 6 meses, muito brincalhona e já vacinada. Está procurando um lar amoroso pois minha filha desenvolveu alergia…"
+                        maxlength="1000"></textarea>
+                    <span class="char-counter"><span id="char-count">0</span> / 1000</span>
+                </div>
+            </section>
+
+            <div class="form-actions">
+                <a href="#" class="btn-secondary">Cancelar</a>
+                <button type="submit" class="btn-primary">Publicar anúncio</button>
+            </div>
+
+        </form>
+    </main>
+
+    <script>
+        // Contador de caracteres
+        const textarea = document.getElementById('descricao');
+        const counter = document.getElementById('char-count');
+        textarea.addEventListener('input', () => counter.textContent = textarea.value.length);
+
+        // Preview de foto ao selecionar
+        document.querySelectorAll('.photo-input').forEach(input => {
+            input.addEventListener('change', function () {
+                const file = this.files[0];
+                if (!file) return;
+                const reader = new FileReader();
+                const slot = this.closest('.photo-slot');
+                reader.onload = e => {
+                    slot.style.backgroundImage = `url(${e.target.result})`;
+                    slot.style.backgroundSize = 'cover';
+                    slot.style.backgroundPosition = 'center';
+                    slot.querySelector('.photo-placeholder').style.display = 'none';
+                };
+                reader.readAsDataURL(file);
+            });
+        });
+    </script>
+</body>
+
+</html>

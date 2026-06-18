@@ -20,4 +20,12 @@ app.get('/gatos', (req, res) => {
     res.render('cats');
 });
 
+app.get('/anunciar', (req, res) => {
+    res.render('list_animal');
+});
+
+app.get('/meus_anuncios', (req, res) => {
+    res.render('my_listings');
+});
+
 app.listen(3000, () => console.log('Rodando em http://localhost:3000'));

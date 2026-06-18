@@ -1,12 +1,6 @@
 :root {
-    --color-orange: #F77B18;
-    --color-blue: #2559A6;
-    --color-navy: #1B3A4B;
-    --color-cream: #FFFBF5;
-    --color-text-muted: #6B7280;
-    --color-border: #E5E7EB;
-}
-
-header {
-    border-bottom: solid 2px var(--color-blue);
+    --color-orange:       #2559A6;
+    --color-orange-light: #E8EFFE;
+    --color-blue:         #F77B18;
+    --color-navy:         #1B3A4B;
 }
