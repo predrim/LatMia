@@ -1,0 +1,126 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    margin: 0px 15%;
+    min-height: 100vh;
+    background: linear-gradient(to bottom, #254d64, #122530);
+}
+
+.side-bar {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    justify-content: space-between;
+    overflow: hidden;
+    background-image: url("/assets/images/login_image.png");
+    background-position: center;
+    background-size: cover;
+}
+
+figcaption {
+    text-shadow: 0px 0px 2px black;
+    font-size: smaller;
+    align-self: center;
+    margin: 1rem;
+}
+
+figcaption a {
+    color: white;
+}
+
+.logo-img {
+    height: 80%;
+}
+
+.logo-background {
+    display: flex;
+    margin-top: 25%;
+    background-color: rgba(0,0,0,0.5);
+    height: 7rem;
+    width: auto;
+    align-items: center;
+    justify-content: center;
+}
+
+main {
+    background-color: rgb(247, 247, 247);
+    flex: 1;
+    min-width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.intro-text, .form-container,.button-container {
+    padding-left: 2.5rem;
+}
+
+.intro-text {
+    max-width: 58ch;
+    padding-right: 2.5rem;
+}
+
+.intro-text, .form-title {
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    box-shadow: 0px 5px 5px rgb(203, 204, 204);
+    margin-bottom: 2rem;
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+    gap: 1rem;
+}
+
+.input-group, .input-container {
+    display: flex;
+}
+
+.input-group {
+    gap: 4rem;
+}
+
+.input-container {
+    flex-direction: column;
+    font-size: 0.70rem;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.input-container input {
+    border: 1px solid #E5E7EB;
+    border-radius: 2px;
+    height: 1.5rem;
+}
+
+.input-container input:focus {
+    outline: 1px solid #0000FF;
+    box-shadow: 2px 2px 4px #00000060;
+}
+
+#password:user-invalid, #confirm-password:user-invalid {
+    border-color: #FF0000;
+}
+
+.submit-button {
+    border: none;
+    border-radius: 5px;
+    color: rgb(247, 247, 247);
+    box-shadow: 2px 2px 4px #00000060;
+    font-weight: bold;
+    background:#254d64;
+    padding: 0.8rem 2.2rem;
+    margin-bottom: 10px;
+}
+
+.log-in-link {
+    text-decoration: none;
+    color: #254d64;
+    font-weight: bold;
+}
