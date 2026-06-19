@@ -162,26 +162,6 @@
     font-weight: 600;
 }
 
-.filter-divider {
-    width: 1px;
-    height: 1.5rem;
-    background: var(--color-border);
-    margin: 0 0.25rem;
-    flex-shrink: 0;
-}
-
-.filter-sort {
-    border: 1px solid var(--color-border);
-    border-radius: 6px;
-    padding: 0.3rem 0.6rem;
-    font-size: 0.82rem;
-    font-family: 'Inter', sans-serif;
-    color: var(--color-text);
-    cursor: pointer;
-    outline: none;
-    background: white;
-}
-
 /* ── MAIN LAYOUT ───────────────────────────────────── */
 
 body {

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/profile.css">
+    <title>LatMia – Meu perfil</title>
+</head>
+
+<body>
+    <header class="site-header">
+        <span class="header-logo">
+            <img src="/assets/images/logo_dog_and_cat.webp" alt="LatMia">
+        </span>
+        <nav class="header-nav">
+            <a class="switch_page" href="/gatos">🐱 Gatos</a>
+            <a class="switch_page" href="/caes">🐶 Cães</a>
+            <a href="/meus_anuncios">Meus anúncios</a>
+            <a href="/anunciar" class="nav-cta">+ Anunciar</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="profile-layout">
+
+            <!-- ── SIDEBAR ──────────────────────────── -->
+            <aside class="profile-card">
+                <div class="avatar-wrap">
+                    <div class="avatar">LG</div>
+                </div>
+                <h2 class="profile-name">Luiz Gustavo Carvalho de Brito</h2>
+                <p class="profile-email">luizex@gmail.com</p>
+                <p class="profile-since">Membro desde mar. 2026 · DF</p>
+
+                <div class="profile-stats">
+                    <div class="profile-stat">
+                        <span class="profile-stat-number">3</span>
+                        <span class="profile-stat-label">Anúncios ativos</span>
+                    </div>
+                    <div class="profile-stat">
+                        <span class="profile-stat-number">2</span>
+                        <span class="profile-stat-label">Pedidos enviados</span>
+                    </div>
+                </div>
+
+                <a href="/meus_anuncios" class="profile-link">Ver meus anúncios →</a>
+            </aside>
+
+            <div class="profile-content">
+
+                <div class="tab-bar">
+                    <button class="tab active" data-tab="dados">Dados pessoais</button>
+                    <button class="tab" data-tab="seguranca">Segurança</button>
+                    <button class="tab" data-tab="pedidos">Meus pedidos de adoção</button>
+                </div>
+
+                <div class="tab-panel active" id="tab-dados">
+                    <section class="form-section">
+                        <h2 class="section-title">Informações pessoais</h2>
+                        <p class="section-hint">Esses dados aparecem para outros usuários quando você anuncia um animal.</p>
+
+                        <div class="field-row">
+                            <div class="field-group">
+                                <label class="field-label" for="nome">Nome completo</label>
+                                <input type="text" id="nome" class="field-input" value="Luiz Gustavo Carvalho de Brito">
+                            </div>
+                        </div>
+
+                        <div class="field-row">
+                            <div class="field-group">
+                                <label class="field-label" for="email">Email</label>
+                                <input type="email" id="email" class="field-input" value="luizex@gmail.com">
+                            </div>
+                            <div class="field-group">
+                                <label class="field-label" for="telefone">Telefone</label>
+                                <input type="tel" id="telefone" class="field-input" value="(61) 99876-5432">
+                            </div>
+                        </div>
+
+                        <div class="field-row">
+                            <div class="field-group field-group--narrow">
+                                <label class="field-label" for="estado">Estado</label>
+                                <select id="estado" class="field-input">
+                                    <option value="AC">AC</option>
+                                    <option value="AL">AL</option>
+                                    <option value="AP">AP</option>
+                                    <option value="AM">AM</option>
+                                    <option value="BA">BA</option>
+                                    <option value="CE">CE</option>
+                                    <option value="DF" selected>DF</option>
+                                    <option value="ES">ES</option>
+                                    <option value="GO">GO</option>
+                                    <option value="MA">MA</option>
+                                    <option value="MT">MT</option>
+                                    <option value="MS">MS</option>
+                                    <option value="MG">MG</option>
+                                    <option value="PA">PA</option>
+                                    <option value="PB">PB</option>
+                                    <option value="PR">PR</option>
+                                    <option value="PE">PE</option>
+                                    <option value="PI">PI</option>
+                                    <option value="RJ">RJ</option>
+                                    <option value="RN">RN</option>
+                                    <option value="RS">RS</option>
+                                    <option value="RO">RO</option>
+                                    <option value="RR">RR</option>
+                                    <option value="SC">SC</option>
+                                    <option value="SP">SP</option>
+                                    <option value="SE">SE</option>
+                                    <option value="TO">TO</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="button" class="btn-primary">Salvar alterações</button>
+                        </div>
+                    </section>
+                </div>
+
+                <div class="tab-panel" id="tab-seguranca">
+                    <section class="form-section">
+                        <h2 class="section-title">Alterar senha</h2>
+
+                        <div class="field-row">
+                            <div class="field-group">
+                                <label class="field-label" for="senha-atual">Senha atual</label>
+                                <input type="password" id="senha-atual" class="field-input" placeholder="••••••••">
+                            </div>
+                        </div>
+
+                        <div class="field-row">
+                            <div class="field-group">
+                                <label class="field-label" for="senha-nova">Nova senha</label>
+                                <input type="password" id="senha-nova" class="field-input" placeholder="••••••••">
+                            </div>
+                            <div class="field-group">
+                                <label class="field-label" for="senha-confirma">Confirmar nova senha</label>
+                                <input type="password" id="senha-confirma" class="field-input" placeholder="••••••••">
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="button" class="btn-primary">Atualizar senha</button>
+                        </div>
+                    </section>
+
+                    <section class="form-section form-section--danger">
+                        <h2 class="section-title">Excluir conta</h2>
+                        <p class="section-hint">Essa ação é permanente. Seus anúncios e pedidos de adoção serão removidos e não poderão ser recuperados.</p>
+                        <button type="button" class="action-btn action-btn--delete">Excluir minha conta</button>
+                    </section>
+                </div>
+
+                <div class="tab-panel" id="tab-pedidos">
+                    <section class="form-section">
+                        <h2 class="section-title">Pedidos de adoção enviados</h2>
+
+                        <div class="pedido-list">
+
+                            <div class="pedido-row">
+                                <img class="pedido-photo" src="/assets/images/racas-de-cachorro-shihtzu-04.jpg" alt="Bolt">
+                                <div class="pedido-info">
+                                    <h3>Bolt</h3>
+                                    <p class="pedido-meta">Border Collie · Curitiba, PR</p>
+                                    <p class="pedido-date">Enviado em 14 jun. 2026</p>
+                                </div>
+                                <span class="status-badge status-em_analise">Em análise</span>
+                            </div>
+
+                            <div class="pedido-row">
+                                <img class="pedido-photo" src="/assets/images/sillycat.jpg" alt="Nala">
+                                <div class="pedido-info">
+                                    <h3>Nala</h3>
+                                    <p class="pedido-meta">Ragdoll · Porto Alegre, RS</p>
+                                    <p class="pedido-date">Enviado em 2 jun. 2026</p>
+                                </div>
+                                <span class="status-badge status-aprovado">Aprovado</span>
+                            </div>
+
+                            <div class="pedido-row">
+                                <img class="pedido-photo" src="/assets/images/racas-de-cachorro-shihtzu-04.jpg" alt="Thor">
+                                <div class="pedido-info">
+                                    <h3>Thor</h3>
+                                    <p class="pedido-meta">Labrador · Rio de Janeiro, RJ</p>
+                                    <p class="pedido-date">Enviado em 28 mai. 2026</p>
+                                </div>
+                                <span class="status-badge status-recusado">Recusado</span>
+                            </div>
+
+                            <div class="pedido-row">
+                                <img class="pedido-photo" src="/assets/images/sillycat.jpg" alt="Simba">
+                                <div class="pedido-info">
+                                    <h3>Simba</h3>
+                                    <p class="pedido-meta">Siamês · São Paulo, SP</p>
+                                    <p class="pedido-date">Enviado em 20 mai. 2026</p>
+                                </div>
+                                <span class="status-badge status-pendente">Pendente</span>
+                            </div>
+
+                        </div>
+                    </section>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <script>
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+                tab.classList.add('active');
+                document.getElementById('tab-' + tab.dataset.tab).classList.add('active');
+            });
+        });
+    </script>
+</body>
+
+</html>

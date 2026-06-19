@@ -1,0 +1,414 @@
+:root {
+    --color-navy:  #1B3A4B;
+    --color-cream: #FFFBF5;
+}
+
+/* ── HEADER (sem barra de busca, logo não é mais link) ── */
+
+.header-logo {
+    margin-right: auto;
+}
+
+.btn-primary {
+    background: var(--color-navy);
+}
+
+/* ── LAYOUT ────────────────────────────────────── */
+
+body {
+    background: var(--color-bg, #F2F4F5);
+    background-image: radial-gradient(circle at 1px 1px, rgba(37, 89, 166, 0.06) 1px, transparent 0);
+    background-size: 24px 24px;
+}
+
+main {
+    max-width: 920px;
+    margin: 2.5rem auto 5rem;
+    padding: 0 1.5rem;
+}
+
+.page-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1.75rem;
+}
+
+.page-header h1 {
+    font-family: 'Baloo 2', sans-serif;
+    font-size: 1.9rem;
+    font-weight: 800;
+    color: var(--color-navy);
+    margin: 0 0 0.25rem;
+}
+
+.page-header p {
+    color: var(--color-text-muted, #6B7280);
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.profile-layout {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 1.5rem;
+    align-items: start;
+}
+
+@media (max-width: 720px) {
+    .profile-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ── SIDEBAR CARD ──────────────────────────────── */
+
+.profile-card {
+    background: white;
+    border: 1px solid var(--color-border, #E5E7EB);
+    border-radius: 12px;
+    padding: 1.75rem 1.5rem;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    text-align: center;
+    position: sticky;
+    top: 1.5rem;
+}
+
+.avatar-wrap {
+    position: relative;
+    width: 88px;
+    margin: 0 auto 1rem;
+}
+
+.avatar {
+    width: 88px;
+    height: 88px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--color-navy), #2559A6);
+    color: white;
+    font-family: 'Baloo 2', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-name {
+    font-family: 'Baloo 2', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--color-navy);
+    margin: 0 0 0.2rem;
+    line-height: 1.3;
+}
+
+.profile-email {
+    font-size: 0.85rem;
+    color: var(--color-text-muted, #6B7280);
+    margin: 0 0 0.15rem;
+    word-break: break-all;
+}
+
+.profile-since {
+    font-size: 0.75rem;
+    color: #9CA3AF;
+    margin: 0 0 1.25rem;
+}
+
+.profile-stats {
+    display: flex;
+    border-top: 1px solid var(--color-border, #E5E7EB);
+    border-bottom: 1px solid var(--color-border, #E5E7EB);
+    padding: 1rem 0;
+    margin-bottom: 1.25rem;
+}
+
+.profile-stat {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+}
+
+.profile-stat-number {
+    font-family: 'Baloo 2', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--color-navy);
+}
+
+.profile-stat-label {
+    font-size: 0.7rem;
+    color: var(--color-text-muted, #6B7280);
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+}
+
+.profile-link {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #2559A6;
+    text-decoration: none;
+}
+
+.profile-link:hover {
+    text-decoration: underline;
+}
+
+/* ── TABS ──────────────────────────────────────── */
+
+.tab-bar {
+    display: flex;
+    gap: 0;
+    border-bottom: 2px solid var(--color-border, #E5E7EB);
+    margin-bottom: 1.25rem;
+    overflow-x: auto;
+}
+
+.tab {
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -2px;
+    padding: 0.6rem 1rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+    color: var(--color-text-muted, #6B7280);
+    cursor: pointer;
+    white-space: nowrap;
+    transition: color 0.15s, border-color 0.15s;
+}
+
+.tab:hover { color: var(--color-navy); }
+
+.tab.active {
+    color: var(--color-navy);
+    border-bottom-color: var(--color-navy);
+}
+
+.tab-panel {
+    display: none;
+}
+
+.tab-panel.active {
+    display: block;
+}
+
+/* ── FORM SECTIONS (mesmo padrão do list_animal.css) ── */
+
+.form-section {
+    background: white;
+    border: 1px solid var(--color-border, #E5E7EB);
+    border-radius: 10px;
+    padding: 1.75rem;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    margin-bottom: 1.25rem;
+}
+
+.form-section--danger {
+    border-color: #FECACA;
+    background: #FFF9F9;
+}
+
+.form-section--danger .section-title {
+    color: #B91C1C;
+}
+
+.section-title {
+    font-family: 'Baloo 2', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--color-navy);
+    margin: 0 0 0.3rem;
+}
+
+.section-hint {
+    font-size: 0.82rem;
+    color: var(--color-text-muted, #6B7280);
+    margin: 0 0 1.25rem;
+}
+
+.field-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.field-row:first-of-type {
+    margin-top: 0;
+}
+
+.field-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.field-group--narrow {
+    max-width: 140px;
+}
+
+.field-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    color: var(--color-text-muted, #6B7280);
+    text-transform: uppercase;
+}
+
+.field-input {
+    border: 1px solid var(--color-border, #E5E7EB);
+    border-radius: 6px;
+    padding: 0.55rem 0.8rem;
+    font-size: 0.9rem;
+    font-family: 'Inter', sans-serif;
+    color: #1F2937;
+    background: white;
+    outline: none;
+    transition: border-color 0.15s, box-shadow 0.15s;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.field-input:focus {
+    border-color: var(--color-navy);
+    box-shadow: 0 0 0 3px rgba(27, 58, 75, 0.1);
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 1.5rem;
+}
+
+.btn-primary {
+    border: none;
+    border-radius: 6px;
+    color: white;
+    font-weight: 700;
+    font-size: 0.9rem;
+    font-family: 'Inter', sans-serif;
+    padding: 0.65rem 1.6rem;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(27, 58, 75, 0.2);
+    transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 14px rgba(27, 58, 75, 0.3);
+}
+
+.btn-secondary:hover {
+    background: #F3F4F6;
+    color: #374151;
+}
+
+.action-btn {
+    border: 1px solid var(--color-border, #E5E7EB);
+    border-radius: 6px;
+    padding: 0.5rem 1.1rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+    background: white;
+    transition: all 0.15s;
+}
+
+.action-btn--delete {
+    color: #DC2626;
+    border-color: #FECACA;
+    background: #FEF2F2;
+}
+
+.action-btn--delete:hover {
+    background: #FECACA;
+}
+
+/* ── PEDIDOS DE ADOÇÃO ─────────────────────────── */
+
+.pedido-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.pedido-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border: 1px solid var(--color-border, #E5E7EB);
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+}
+
+.pedido-photo {
+    width: 56px;
+    height: 56px;
+    border-radius: 6px;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.pedido-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.pedido-info h3 {
+    font-family: 'Baloo 2', sans-serif;
+    font-size: 0.98rem;
+    font-weight: 700;
+    color: var(--color-navy);
+    margin: 0 0 0.1rem;
+}
+
+.pedido-meta {
+    font-size: 0.8rem;
+    color: var(--color-text-muted, #6B7280);
+    margin: 0;
+}
+
+.pedido-date {
+    font-size: 0.75rem;
+    color: #9CA3AF;
+    margin: 0.1rem 0 0;
+}
+
+/* ── STATUS BADGES (pedidos_adocao.status_adocao) ── */
+
+.status-badge {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 0.25rem 0.65rem;
+    border-radius: 999px;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.status-pendente {
+    background: #FEF3C7;
+    color: #92400E;
+}
+
+.status-em_analise {
+    background: #DBEAFE;
+    color: #1D4ED8;
+}
+
+.status-aprovado {
+    background: #DCFCE7;
+    color: #15803D;
+}
+
+.status-recusado {
+    background: #FEE2E2;
+    color: #B91C1C;
+}

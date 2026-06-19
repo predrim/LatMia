@@ -28,4 +28,8 @@ app.get('/meus_anuncios', (req, res) => {
     res.render('my_listings');
 });
 
+app.get('/perfil', (req, res) => {
+    res.render('profile');
+});
+
 app.listen(3000, () => console.log('Rodando em http://localhost:3000'));
