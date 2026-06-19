@@ -54,83 +54,39 @@
             <div class="section-header">
                 <h2>Recentemente listados</h2>
             </div>
+
             <div class="carousel_items">
-
-                <div class="container">
-                    <a href="" class="card-link">
-                        <div class="card-img-wrap">
-                            <img src="/assets/images/racas-de-cachorro-shihtzu-04.jpg" alt="Shih Tzu fêmea">
-                            <span class="badge badge-new">Recém listado</span>
+                <% if (recentes && recentes.length> 0) { %>
+                    <% recentes.forEach(cao=> { %>
+                        <div class="container">
+                            <a href="/animal/<%= cao.id %>" class="card-link">
+                                <div class="card-img-wrap">
+                                    <img src="<%= cao.url_foto || '/assets/images/logo_dog.webp' %>"
+                                        alt="<%= cao.nome %>">
+                                </div>
+                                <div class="card-info">
+                                    <h3 class="card-name">
+                                        <%= cao.nome || 'Sem nome' %>
+                                    </h3>
+                                    <p class="card-meta">
+                                        <%= cao.sexo==='macho' ? 'Macho' : 'Fêmea' %> · Porte <%= cao.porte %>
+                                    </p>
+                                    <p class="card-location">📍 <%= cao.estado || 'DF' %>
+                                    </p>
+                                </div>
+                            </a>
                         </div>
-                        <div class="card-info">
-                            <h3 class="card-name">Mel</h3>
-                            <p class="card-meta">Shih Tzu · Fêmea · Filhote</p>
-                            <p class="card-location">📍 São Paulo, SP · <span class="card-time">há 2 horas</span></p>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="container">
-                    <a href="" class="card-link">
-                        <div class="card-img-wrap">
-                            <img src="/assets/images/racas-de-cachorro-shihtzu-04.jpg" alt="Labrador macho">
-                            <span class="badge badge-urgent">Urgente</span>
-                        </div>
-                        <div class="card-info">
-                            <h3 class="card-name">Thor</h3>
-                            <p class="card-meta">Labrador · Macho · Adulto</p>
-                            <p class="card-location">📍 Rio de Janeiro, RJ · <span class="card-time">há 5 horas</span>
-                            </p>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="container">
-                    <a href="" class="card-link">
-                        <div class="card-img-wrap">
-                            <img src="/assets/images/racas-de-cachorro-shihtzu-04.jpg" alt="Poodle fêmea">
-                        </div>
-                        <div class="card-info">
-                            <h3 class="card-name">Nina</h3>
-                            <p class="card-meta">Poodle · Fêmea · Adulta</p>
-                            <p class="card-location">📍 Belo Horizonte, MG · <span class="card-time">há 1 dia</span></p>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="container">
-                    <a href="" class="card-link">
-                        <div class="card-img-wrap">
-                            <img src="/assets/images/racas-de-cachorro-shihtzu-04.jpg" alt="Border Collie macho">
-                            <span class="badge badge-new">Recém listado</span>
-                        </div>
-                        <div class="card-info">
-                            <h3 class="card-name">Bolt</h3>
-                            <p class="card-meta">Border Collie · Macho · Jovem</p>
-                            <p class="card-location">📍 Curitiba, PR · <span class="card-time">há 1 dia</span></p>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="container">
-                    <a href="" class="card-link">
-                        <div class="card-img-wrap">
-                            <img src="/assets/images/racas-de-cachorro-shihtzu-04.jpg" alt="Beagle macho">
-                        </div>
-                        <div class="card-info">
-                            <h3 class="card-name">Pipoca</h3>
-                            <p class="card-meta">Beagle · Macho · Filhote</p>
-                            <p class="card-location">📍 Porto Alegre, RS · <span class="card-time">há 2 dias</span></p>
-                        </div>
-                    </a>
-                </div>
-
+                        <% }) %>
+                            <% } else { %>
+                                <p style="padding: 1rem; color: #6B7280;">Nenhum destaque recente.</p>
+                                <% } %>
             </div>
+
         </section>
 
         <section class="animal_grid">
             <div class="section-header">
-                <h2>Todos os cães disponíveis <span class="result-count">32 resultados</span></h2>
+                <h2>Todos os cães disponíveis</h2>
             </div>
             <div class="grid_items">
                 <% if (caes && caes.length> 0) { %>

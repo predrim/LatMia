@@ -56,82 +56,36 @@
                 <h2>Recentemente listados</h2>
             </div>
             <div class="carousel_items">
-
-                <div class="container">
-                    <a href="" class="card-link">
-                        <div class="card-img-wrap">
-                            <img src="/assets/images/sillycat.jpg" alt="Siamês macho">
-                            <span class="badge badge-new">Recém listado</span>
+                <% if (recentes && recentes.length> 0) { %>
+                    <% recentes.forEach(gato=> { %>
+                        <div class="container">
+                            <a href="/animal/<%= gato.id %>" class="card-link">
+                                <div class="card-img-wrap">
+                                    <img src="<%= gato.url_foto || '/assets/images/logo_cat.webp' %>"
+                                        alt="<%= gato.nome %>">
+                                </div>
+                                <div class="card-info">
+                                    <h3 class="card-name">
+                                        <%= gato.nome || 'Sem nome' %>
+                                    </h3>
+                                    <p class="card-meta">
+                                        <%= gato.sexo==='macho' ? 'Macho' : 'Fêmea' %> · Porte <%= gato.porte %>
+                                    </p>
+                                    <p class="card-location">📍 <%= gato.estado || 'DF' %>
+                                    </p>
+                                </div>
+                            </a>
                         </div>
-                        <div class="card-info">
-                            <h3 class="card-name">Simba</h3>
-                            <p class="card-meta">Siamês · Macho · Filhote</p>
-                            <p class="card-location">📍 São Paulo, SP · <span class="card-time">há 1 hora</span></p>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="container">
-                    <a href="" class="card-link">
-                        <div class="card-img-wrap">
-                            <img src="/assets/images/sillycat.jpg" alt="Persa fêmea">
-                            <span class="badge badge-urgent">Urgente</span>
-                        </div>
-                        <div class="card-info">
-                            <h3 class="card-name">Luna</h3>
-                            <p class="card-meta">Persa · Fêmea · Adulta</p>
-                            <p class="card-location">📍 Rio de Janeiro, RJ · <span class="card-time">há 3 horas</span>
-                            </p>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="container">
-                    <a href="" class="card-link">
-                        <div class="card-img-wrap">
-                            <img src="/assets/images/sillycat.jpg" alt="Maine Coon macho">
-                        </div>
-                        <div class="card-info">
-                            <h3 class="card-name">Mufasa</h3>
-                            <p class="card-meta">Maine Coon · Macho · Jovem</p>
-                            <p class="card-location">📍 Curitiba, PR · <span class="card-time">há 6 horas</span></p>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="container">
-                    <a href="" class="card-link">
-                        <div class="card-img-wrap">
-                            <img src="/assets/images/sillycat.jpg" alt="SRD fêmea">
-                            <span class="badge badge-new">Recém listado</span>
-                        </div>
-                        <div class="card-info">
-                            <h3 class="card-name">Mel</h3>
-                            <p class="card-meta">SRD · Fêmea · Filhote</p>
-                            <p class="card-location">📍 Belo Horizonte, MG · <span class="card-time">há 1 dia</span></p>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="container">
-                    <a href="" class="card-link">
-                        <div class="card-img-wrap">
-                            <img src="/assets/images/sillycat.jpg" alt="Ragdoll fêmea">
-                        </div>
-                        <div class="card-info">
-                            <h3 class="card-name">Nala</h3>
-                            <p class="card-meta">Ragdoll · Fêmea · Adulta</p>
-                            <p class="card-location">📍 Porto Alegre, RS · <span class="card-time">há 2 dias</span></p>
-                        </div>
-                    </a>
-                </div>
-
+                        <% }) %>
+                            <% } else { %>
+                                <p style="padding: 1rem; color: #6B7280;">Nenhum destaque recente no momento.</p>
+                                <% } %>
             </div>
         </section>
 
         <section class="animal_grid">
             <div class="section-header">
-                <h2>Todos os gatos disponíveis <span class="result-count">28 resultados</span></h2>
+                <h2>Todos os gatos disponíveis</h2>
             </div>
             <div class="grid_items">
                 <% if (gatos && gatos.length> 0) { %>

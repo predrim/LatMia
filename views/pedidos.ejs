@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/pedidos.css">
+    <title>Pedidos de <%= animal.nome %> | LatMia</title>
+</head>
+
+<body>
+    <header class="site-header">
+        <span class="header-logo">
+            <img src="/assets/images/logo_dog_and_cat.webp" alt="LatMia">
+        </span>
+        <nav class="header-nav">
+            <a class="switch_page" href="/gatos">🐱 Gatos</a>
+            <a class="switch_page" href="/caes">🐶 Cães</a>
+            <a href="/meus_anuncios">Meus anúncios</a>
+            <a href="/anunciar" class="nav-cta">+ Anunciar</a>
+            <a href="/logout" class="nav-logout">Sair</a>
+        </nav>
+    </header>
+
+    <div class="back-bar">
+        <a href="/meus_anuncios" class="back-link">← Voltar para meus anúncios</a>
+    </div>
+
+    <main>
+        <div class="pedidos-header">
+            <img class="pedidos-animal-photo"
+                src="<%= urlFoto || (animal.especie === 'cao' ? '/assets/images/logo_dog.webp' : '/assets/images/logo_cat.webp') %>"
+                alt="<%= animal.nome %>">
+            <div>
+                <h1>Pedidos de adoção · <%= animal.nome || 'Sem nome' %></h1>
+                <p><%= pedidos.length %> <%= pedidos.length === 1 ? 'pedido recebido' : 'pedidos recebidos' %></p>
+            </div>
+        </div>
+
+        <div class="pedido-list">
+            <% if (pedidos && pedidos.length > 0) { %>
+                <% pedidos.forEach(pedido => { %>
+                    <div class="pedido-card" data-pedido-id="<%= pedido.id %>">
+                        <div class="pedido-avatar"><%= pedido.adotante_nome.substring(0, 2).toUpperCase() %></div>
+
+                        <div class="pedido-info">
+                            <h3><%= pedido.adotante_nome %></h3>
+                            <p class="pedido-contact">✉️ <%= pedido.adotante_email %></p>
+                            <% if (pedido.adotante_telefone) { %>
+                                <p class="pedido-contact">📞 <%= pedido.adotante_telefone %></p>
+                            <% } %>
+                            <p class="pedido-meta">
+                                📍 <%= pedido.adotante_estado || 'DF' %>
+                                <span class="info-dot">·</span>
+                                <%
+                                    const dataStr = new Date(pedido.data_criacao).toLocaleDateString('pt-BR', { day: 'numeric', month: 'short', year: 'numeric' });
+                                %>
+                                Enviado em <%= dataStr %>
+                            </p>
+                        </div>
+
+                        <div class="pedido-side">
+                            <span class="status-badge status-<%= pedido.status_adocao %>">
+                                <%= pedido.status_adocao === 'pendente' ? 'Pendente' : (pedido.status_adocao === 'aprovado' ? 'Aprovado' : 'Recusado') %>
+                            </span>
+
+                            <div class="pedido-actions">
+                                <% if (pedido.status_adocao === 'pendente') { %>
+                                    <% if (pedido.adotante_telefone) { %>
+                                        <a href="https://wa.me/55<%= pedido.adotante_telefone.replace(/\D/g, '') %>"
+                                            class="action-btn action-btn--whatsapp" target="_blank" rel="noopener">WhatsApp</a>
+                                    <% } %>
+                                    <button class="action-btn action-btn--approve" data-id="<%= pedido.id %>">Aprovar</button>
+                                    <button class="action-btn action-btn--reject" data-id="<%= pedido.id %>">Recusar</button>
+                                <% } else { %>
+                                    <button class="action-btn action-btn--delete" data-id="<%= pedido.id %>">Excluir</button>
+                                <% } %>
+                            </div>
+                        </div>
+                    </div>
+                <% }) %>
+            <% } else { %>
+                <div class="empty-state">
+                    <span class="empty-icon">📭</span>
+                    <p>Nenhum pedido de adoção recebido ainda.</p>
+                </div>
+            <% } %>
+        </div>
+    </main>
+
+    <script src="/pedidos.service.js"></script>
+</body>
+
+</html>

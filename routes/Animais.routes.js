@@ -1,26 +1,11 @@
-// =========================================================
-// Rota: Cadastro de animal com upload de fotos
-// Requer: npm install express multer mysql2
-// =========================================================
-
 const express = require('express');
 const multer = require('multer');
 const path = require('path');
-const mysql = require('mysql2/promise');
-const router = express.Router();
+const router = Router = express.Router();
 const fs = require('fs');
 
-// ---------------------------------------------------------
-// Conexão com o banco de dados
-// ---------------------------------------------------------
-const pool = mysql.createPool({
-  host: 'localhost',
-  user: 'root',
-  password: 'root',
-  database: 'lat_db',
-  waitForConnections: true,
-  connectionLimit: 10,
-});
+// 1. IMPORTA O BANCO
+const pool = require('../config/db.js');
 
 const dir = 'uploads/animais';
 if (!fs.existsSync(dir)){
@@ -47,25 +32,7 @@ const upload = multer({
     cb(valido ? null : new Error('Formato de imagem não suportado.'), valido);
   },
 });
-
-// ---------------------------------------------------------
-// POST /animais
-//
-// Cadastra um animal e suas fotos em uma única requisição.
-//
-// Campos esperados (multipart/form-data):
-//   - anunciante_id      (obrigatório)
-//   - especie             'cao' ou 'gato' (obrigatório)
-//   - nome, cor, idade_meses, sexo, porte, descricao (opcionais)
-//   - fotos               arquivos de imagem (até 6)
-//   - foto_principal_index índice (0-based) da foto que será a capa (opcional, padrão 0)
-//
-// Resposta de sucesso (201):
-//   { success: true, animal_id: 12, fotos: [{ id: 25, url: "...", e_principal: true }] }
-//
-// Resposta de erro (400/500):
-//   { success: false, erro: "mensagem explicando o problema" }
-// ---------------------------------------------------------
+// cria uma rota para cadastrar um novo animal (CREATE)
 router.post('/animais', upload.array('fotos', 6), async (req, res) => {
   const connection = await pool.getConnection();
 
@@ -140,7 +107,7 @@ router.post('/animais', upload.array('fotos', 6), async (req, res) => {
     connection.release();
   }
 });
-
+// seta/atualiza o status do animal (UPDATE)
 router.put('/animais/:id/status', async (req, res) => {
   const animalId = req.params.id;
   const { status } = req.body;
@@ -161,7 +128,7 @@ router.put('/animais/:id/status', async (req, res) => {
     return res.status(500).json({ success: false, erro: 'Erro interno do servidor.' });
   }
 });
-
+// exclui o animal do banco (DELETE)
 router.delete('/animais/:id', async (req, res) => {
   const animalId = req.params.id;
 
@@ -183,11 +150,3 @@ router.delete('/animais/:id', async (req, res) => {
 });
 
 module.exports = router;
-
-// ---------------------------------------------------------
-// Como usar no servidor principal (server.js):
-//
-//   const animaisRoutes = require('./animais.routes');
-//   app.use('/routes', animaisRoutes);
-//   app.use('/uploads', express.static('uploads')); // para servir as fotos
-// ---------------------------------------------------------

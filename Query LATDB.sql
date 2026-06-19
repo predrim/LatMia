@@ -83,3 +83,42 @@ INSERT INTO usuario (nome, email, senha_hash, telefone, estado) VALUES
 ('Mariana Costa Lima', 'mariana.lima@gmail.com', 'Mariana321', '(31) 97654-3210', 'MG'),
 ('João Pedro Almeida', 'joao.almeida@gmail.com', 'JPGamer2011', '(85) 96543-2109', 'CE'),
 ('Pedro Ferraz de Souza Pereira', 'pedreiro@gmail.com', 'pedro', '(61) 95432-1098', 'DF');
+
+ALTER TABLE pedidos_adocao 
+MODIFY COLUMN status_adocao ENUM('pendente', 'aprovado', 'recusado') NOT NULL DEFAULT 'pendente';
+
+-- insert animais
+INSERT INTO animal (anunciante_id, nome, especie, cor, idade_meses, sexo, porte, descricao, status) VALUES
+(
+    (SELECT id FROM usuario WHERE email = 'luizex@gmail.com'), 
+    'Rex', 
+    'cao', 
+    'Caramelo', 
+    24, 
+    'macho', 
+    'medio', 
+    'Muito dócil, brincalhão e adora correr no quintal.', 
+    'disponivel'
+),
+(
+    (SELECT id FROM usuario WHERE email = 'mariana.lima@gmail.com'), 
+    'Mia', 
+    'gato', 
+    'Escaminha', 
+    12, 
+    'femea', 
+    'pequeno', 
+    'Calma, carinhosa e adora dormir em locais quentinhos.', 
+    'disponivel'
+),
+(
+    (SELECT id FROM usuario WHERE email = 'carlos.souza@gmail.com'), 
+    'Thor', 
+    'cao', 
+    'Preto e Branco', 
+    36, 
+    'macho', 
+    'grande', 
+    'Ótimo cão de guarda, mas muito carinhoso com a família.', 
+    'disponivel'
+);

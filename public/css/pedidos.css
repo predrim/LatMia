@@ -1,0 +1,233 @@
+/* Variáveis de cor já vêm de main.css (--color-navy, --color-cream, etc.) */
+
+.header-logo {
+    margin-right: auto;
+}
+
+body {
+    background: var(--color-bg);
+    background-image: radial-gradient(circle at 1px 1px, rgba(37, 89, 166, 0.06) 1px, transparent 0);
+    background-size: 24px 24px;
+}
+
+/* ── BACK BAR ──────────────────────────────────── */
+
+.back-bar {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 1.25rem 1.5rem 0;
+}
+
+.back-link {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-text-muted);
+    text-decoration: none;
+}
+
+.back-link:hover {
+    color: var(--color-navy);
+}
+
+/* ── LAYOUT ────────────────────────────────────── */
+
+main {
+    max-width: 800px;
+    margin: 0 auto 5rem;
+    padding: 0 1.5rem;
+}
+
+.pedidos-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.5rem 0 2rem;
+}
+
+.pedidos-animal-photo {
+    width: 64px;
+    height: 64px;
+    border-radius: 10px;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.pedidos-header h1 {
+    font-family: 'Baloo 2', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--color-navy);
+    margin: 0 0 0.15rem;
+}
+
+.pedidos-header p {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    margin: 0;
+}
+
+/* ── PEDIDO CARDS ──────────────────────────────── */
+
+.pedido-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.pedido-card {
+    background: white;
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    padding: 1.25rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    box-shadow: var(--shadow-card);
+    transition: opacity 0.2s, transform 0.2s;
+}
+
+.pedido-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--color-navy), var(--color-blue));
+    color: white;
+    font-family: 'Baloo 2', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.pedido-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.pedido-info h3 {
+    font-family: 'Baloo 2', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--color-navy);
+    margin: 0 0 0.3rem;
+}
+
+.pedido-contact {
+    font-size: 0.82rem;
+    color: #4B5563;
+    margin: 0 0 0.15rem;
+}
+
+.pedido-meta {
+    font-size: 0.78rem;
+    color: #9CA3AF;
+    margin: 0.3rem 0 0;
+}
+
+.info-dot {
+    margin: 0 0.2rem;
+}
+
+.pedido-side {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.6rem;
+    flex-shrink: 0;
+}
+
+/* ── STATUS BADGES ─────────────────────────────── */
+
+.status-badge {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 0.25rem 0.65rem;
+    border-radius: 999px;
+    white-space: nowrap;
+}
+
+.status-pendente {
+    background: #FEF3C7;
+    color: #92400E;
+}
+
+.status-aprovado {
+    background: #DCFCE7;
+    color: #15803D;
+}
+
+.status-recusado {
+    background: #FEE2E2;
+    color: #B91C1C;
+}
+
+/* ── ACTIONS ───────────────────────────────────── */
+
+.pedido-actions {
+    display: flex;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+.action-btn {
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    padding: 0.35rem 0.75rem;
+    font-size: 0.78rem;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+    background: white;
+    text-decoration: none;
+    color: #374151;
+    transition: all 0.15s;
+}
+
+.action-btn--whatsapp,
+.action-btn--approve {
+    color: #15803D;
+    border-color: #BBF7D0;
+    background: #F0FDF4;
+}
+
+.action-btn--whatsapp:hover,
+.action-btn--approve:hover {
+    background: #DCFCE7;
+}
+
+.action-btn--reject {
+    color: #B91C1C;
+    border-color: #FECACA;
+    background: #FEF2F2;
+}
+
+.action-btn--reject:hover {
+    background: #FECACA;
+}
+
+.action-btn--delete {
+    color: #6B7280;
+}
+
+.action-btn--delete:hover {
+    background: #F3F4F6;
+}
+
+/* ── EMPTY STATE ───────────────────────────────── */
+
+.empty-state {
+    text-align: center;
+    padding: 4rem 1rem;
+    color: var(--color-text-muted);
+}
+
+.empty-icon {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 0.5rem;
+}

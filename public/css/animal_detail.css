@@ -1,0 +1,245 @@
+/* Variáveis de cor já vêm de main.css (--color-navy, --color-cream, etc.) */
+
+/* ── HEADER (sem busca, mesma lógica das outras páginas internas) ── */
+
+.header-logo {
+    margin-right: auto;
+}
+
+.nav-logout {
+    color: #DC2626 !important;
+    font-weight: 600 !important;
+    margin-left: 0.5rem;
+}
+
+/* ── BACK BAR ──────────────────────────────────── */
+
+.back-bar {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 1.25rem 1.5rem 0;
+}
+
+.back-link {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-text-muted);
+    text-decoration: none;
+}
+
+.back-link:hover {
+    color: var(--color-navy);
+}
+
+/* ── LAYOUT ────────────────────────────────────── */
+
+body {
+    background: var(--color-bg);
+}
+
+.detail-layout {
+    display: grid;
+    grid-template-columns: 1fr 360px;
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 1.5rem auto 4rem;
+    padding: 0 1.5rem;
+    align-items: start;
+}
+
+@media (max-width: 760px) {
+    .detail-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ── GALLERY ───────────────────────────────────── */
+
+.gallery-main {
+    position: relative;
+    border-radius: var(--radius-card);
+    overflow: hidden;
+    background: white;
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-card);
+}
+
+.gallery-main img {
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+    display: block;
+}
+
+.gallery-status-badge {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    z-index: 2;
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 0.35rem 0.85rem;
+    border-radius: 999px;
+    color: white;
+}
+
+.status-adotado {
+    background: #2559A6;
+}
+
+.status-pausado {
+    background: #6B7280;
+}
+
+.gallery-thumbs {
+    display: flex;
+    gap: 0.6rem;
+    margin-top: 0.75rem;
+    overflow-x: auto;
+}
+
+.thumb {
+    width: 76px;
+    height: 76px;
+    object-fit: cover;
+    border-radius: 6px;
+    cursor: pointer;
+    flex-shrink: 0;
+    border: 2px solid transparent;
+    opacity: 0.75;
+    transition: opacity 0.15s, border-color 0.15s;
+}
+
+.thumb:hover {
+    opacity: 1;
+}
+
+.thumb-active {
+    opacity: 1;
+    border-color: var(--color-orange);
+}
+
+/* ── INFO ──────────────────────────────────────── */
+
+.info-header h1 {
+    font-family: 'Baloo 2', sans-serif;
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--color-navy);
+    margin: 0 0 0.6rem;
+}
+
+.info-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 0.85rem;
+}
+
+.info-chip {
+    background: var(--color-orange-light);
+    color: var(--color-navy);
+    font-size: 0.82rem;
+    font-weight: 600;
+    padding: 0.3rem 0.75rem;
+    border-radius: 999px;
+}
+
+.info-location {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    margin: 0 0 1.5rem;
+}
+
+.info-dot {
+    margin: 0 0.2rem;
+}
+
+.description h3 {
+    font-family: 'Baloo 2', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--color-navy);
+    margin: 0 0 0.5rem;
+}
+
+.description p {
+    font-size: 0.92rem;
+    line-height: 1.6;
+    color: #374151;
+    margin: 0 0 1.75rem;
+    white-space: pre-line;
+}
+
+/* ── CONTACT CARD ──────────────────────────────── */
+
+.contact-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: var(--radius-card);
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-card);
+}
+
+.contact-card h3 {
+    font-family: 'Baloo 2', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--color-navy);
+    margin: 0 0 0.4rem;
+}
+
+.contact-card p {
+    font-size: 0.88rem;
+    color: var(--color-text-muted);
+    margin: 0 0 1rem;
+}
+
+.btn-whatsapp {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    background: #25D366;
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.9rem;
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+    transition: background 0.15s, transform 0.15s;
+}
+
+.btn-whatsapp:hover {
+    background: #1ebe57;
+    transform: translateY(-1px);
+}
+
+.no-phone {
+    font-size: 0.85rem;
+    color: #9CA3AF;
+    font-style: italic;
+}
+
+.adopt-form {
+    margin-top: 0.75rem;
+}
+
+.btn-adopt {
+    width: 100%;
+    background: white;
+    color: var(--color-navy);
+    border: 2px solid var(--color-navy);
+    border-radius: 6px;
+    padding: 0.7rem 1rem;
+    font-size: 0.9rem;
+    font-weight: 700;
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+}
+
+.btn-adopt:hover {
+    background: var(--color-navy);
+    color: white;
+}

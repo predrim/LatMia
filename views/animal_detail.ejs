@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/animal_detail.css">
+    <title><%= animal.nome %> | LatMia</title>
+</head>
+
+<body>
+    <header class="site-header">
+        <span class="header-logo">
+            <img src="/assets/images/logo_dog_and_cat.webp" alt="LatMia">
+        </span>
+        <nav class="header-nav">
+            <a class="switch_page" href="/gatos">🐱 Gatos</a>
+            <a class="switch_page" href="/caes">🐶 Cães</a>
+            <a href="/meus_anuncios">Meus anúncios</a>
+            <a href="/anunciar" class="nav-cta">+ Anunciar</a>
+            <a href="/logout" class="nav-logout">Sair</a>
+        </nav>
+    </header>
+
+    <div class="back-bar">
+        <a href="/<%= animal.especie === 'cao' ? 'caes' : 'gatos' %>" class="back-link">
+            ← Voltar para <%= animal.especie === 'cao' ? 'cães' : 'gatos' %>
+        </a>
+    </div>
+
+    <main class="detail-layout">
+
+        <!-- ── GALERIA ──────────────────────────────── -->
+        <section class="gallery">
+            <div class="gallery-main">
+                <% if (animal.status !== 'disponivel') { %>
+                    <span class="gallery-status-badge status-<%= animal.status %>">
+                        <%= animal.status === 'adotado' ? 'Adotado 🎉' : 'Pausado' %>
+                    </span>
+                <% } %>
+
+                <% if (fotos && fotos.length > 0) { %>
+                    <img id="gallery-main-img" src="<%= fotos[0].url_foto %>" alt="<%= animal.nome %>">
+                <% } else { %>
+                    <img id="gallery-main-img"
+                        src="<%= animal.especie === 'cao' ? '/assets/images/logo_dog.webp' : '/assets/images/logo_cat.webp' %>"
+                        alt="<%= animal.nome %>">
+                <% } %>
+            </div>
+
+            <% if (fotos && fotos.length > 1) { %>
+                <div class="gallery-thumbs">
+                    <% fotos.forEach((foto, i) => { %>
+                        <img src="<%= foto.url_foto %>"
+                            alt="<%= animal.nome %> foto <%= i + 1 %>"
+                            class="thumb <%= i === 0 ? 'thumb-active' : '' %>">
+                    <% }) %>
+                </div>
+            <% } %>
+        </section>
+
+        <!-- ── INFO ─────────────────────────────────── -->
+        <section class="info">
+            <div class="info-header">
+                <h1><%= animal.nome || 'Sem nome' %></h1>
+            </div>
+
+            <div class="info-chips">
+                <span class="info-chip"><%= animal.especie === 'cao' ? '🐶 Cão' : '🐱 Gato' %></span>
+                <span class="info-chip"><%= animal.sexo === 'macho' ? 'Macho' : 'Fêmea' %></span>
+                <span class="info-chip">Porte <%= animal.porte %></span>
+                <span class="info-chip">
+                    <%= animal.idade_meses ? animal.idade_meses + ' meses' : 'Idade não informada' %>
+                </span>
+                <% if (animal.cor) { %>
+                    <span class="info-chip"><%= animal.cor %></span>
+                <% } %>
+            </div>
+
+            <p class="info-location">
+                📍 <%= animal.anunciante_estado || animal.estado || 'DF' %>
+                <span class="info-dot">·</span>
+                Anunciado em
+                <%
+                    const dataStr = animal.data_anuncio
+                        ? new Date(animal.data_anuncio).toLocaleDateString('pt-BR', { day: 'numeric', month: 'short', year: 'numeric' })
+                        : 'data não informada';
+                %>
+                <%= dataStr %>
+            </p>
+
+            <div class="description">
+                <h3>Sobre <%= animal.nome %></h3>
+                <p><%= animal.descricao || 'O anunciante ainda não adicionou uma descrição.' %></p>
+            </div>
+
+            <div class="contact-card">
+                <h3>Interessado?</h3>
+                <p>Entre em contato com <strong><%= animal.anunciante_nome %></strong></p>
+
+                <% if (animal.anunciante_telefone) { %>
+                    <a href="https://wa.me/55<%= animal.anunciante_telefone.replace(/\D/g, '') %>"
+                        class="btn-whatsapp" target="_blank" rel="noopener">
+                        💬 WhatsApp: <%= animal.anunciante_telefone %>
+                    </a>
+                <% } else { %>
+                    <p class="no-phone">Telefone não informado</p>
+                <% } %>
+
+                <% if (animal.status === 'disponivel') { %>
+                    <form action="/animal/<%= animal.id %>/pedidos" method="post" class="adopt-form">
+                        <button type="submit" class="btn-adopt">Enviar pedido de adoção</button>
+                    </form>
+                <% } %>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="/animal_detail.service.js"></script>
+</body>
+
+</html>

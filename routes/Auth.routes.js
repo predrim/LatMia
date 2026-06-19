@@ -1,14 +1,10 @@
 const express = require('express');
-const mysql = require('mysql2/promise');
 const router = express.Router();
 
-const pool = mysql.createPool({
-  host: 'localhost',
-  user: 'root',
-  password: 'root',
-  database: 'lat_db'
-});
+// 1. IMPORTA O BANCO
+const pool = require('../config/db.js'); 
 
+// Rota para o login utilizando email e senha
 router.post('/login', async (req, res) => {
     const email = req.body['user-email'];
     const senha = req.body['user-password'];
@@ -35,6 +31,7 @@ router.post('/login', async (req, res) => {
     }
 });
 
+// Rota para o usuario fazer logout
 router.post('/logout', (req, res) => {
     req.session.destroy();
     res.json({ success: true });
