@@ -7,8 +7,8 @@ const express = require('express');
 const multer = require('multer');
 const path = require('path');
 const mysql = require('mysql2/promise');
-
 const router = express.Router();
+const fs = require('fs');
 
 // ---------------------------------------------------------
 // Conexão com o banco de dados
@@ -21,6 +21,11 @@ const pool = mysql.createPool({
   waitForConnections: true,
   connectionLimit: 10,
 });
+
+const dir = 'uploads/animais';
+if (!fs.existsSync(dir)){
+    fs.mkdirSync(dir, { recursive: true });
+}
 
 // ---------------------------------------------------------
 // Configuração de onde/como as fotos serão salvas no servidor
@@ -35,7 +40,7 @@ const storage = multer.diskStorage({
 
 const upload = multer({
   storage,
-  limits: { fileSize: 5 * 1024 * 1024 }, // limite de 5MB por foto
+  limits: { fileSize: 5 * 1024 * 1024 },
   fileFilter: (req, file, cb) => {
     const tiposPermitidos = /jpeg|jpg|png|webp/;
     const valido = tiposPermitidos.test(path.extname(file.originalname).toLowerCase());
@@ -133,6 +138,47 @@ router.post('/animais', upload.array('fotos', 6), async (req, res) => {
     });
   } finally {
     connection.release();
+  }
+});
+
+router.put('/animais/:id/status', async (req, res) => {
+  const animalId = req.params.id;
+  const { status } = req.body;
+
+  try {
+    const [result] = await pool.execute(
+      'UPDATE animal SET status = ? WHERE id = ?',
+      [status, animalId]
+    );
+
+    if (result.affectedRows > 0) {
+      return res.json({ success: true, mensagem: `Status atualizado para ${status}.` });
+    } else {
+      return res.status(404).json({ success: false, erro: 'Animal não encontrado.' });
+    }
+  } catch (error) {
+    console.error('Erro ao atualizar status do animal:', error);
+    return res.status(500).json({ success: false, erro: 'Erro interno do servidor.' });
+  }
+});
+
+router.delete('/animais/:id', async (req, res) => {
+  const animalId = req.params.id;
+
+  try {
+    const [result] = await pool.execute(
+      'DELETE FROM animal WHERE id = ?',
+      [animalId]
+    );
+
+    if (result.affectedRows > 0) {
+      return res.json({ success: true, mensagem: 'Anúncio excluído com sucesso.' });
+    } else {
+      return res.status(404).json({ success: false, erro: 'Animal não encontrado.' });
+    }
+  } catch (error) {
+    console.error('Erro ao excluir animal:', error);
+    return res.status(500).json({ success: false, erro: 'Erro interno do servidor.' });
   }
 });
 

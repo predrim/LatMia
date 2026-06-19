@@ -42,38 +42,38 @@
 
                 <div class="photo-grid">
                     <label class="photo-slot photo-slot--primary" for="photo-0">
-                        <input type="file" id="photo-0" name="fotos[]" accept="image/*" class="photo-input">
+                        <input type="file" id="photo-0" name="fotos" accept="image/*" class="photo-input">
                         <div class="photo-placeholder">
                             <span class="photo-icon">📷</span>
                             <span>Foto principal</span>
                         </div>
                     </label>
                     <label class="photo-slot" for="photo-1">
-                        <input type="file" id="photo-1" name="fotos[]" accept="image/*" class="photo-input">
+                        <input type="file" id="photo-1" name="fotos" accept="image/*" class="photo-input">
                         <div class="photo-placeholder">
                             <span class="photo-icon">+</span>
                         </div>
                     </label>
                     <label class="photo-slot" for="photo-2">
-                        <input type="file" id="photo-2" name="fotos[]" accept="image/*" class="photo-input">
+                        <input type="file" id="photo-2" name="fotos" accept="image/*" class="photo-input">
                         <div class="photo-placeholder">
                             <span class="photo-icon">+</span>
                         </div>
                     </label>
                     <label class="photo-slot" for="photo-3">
-                        <input type="file" id="photo-3" name="fotos[]" accept="image/*" class="photo-input">
+                        <input type="file" id="photo-3" name="fotos" accept="image/*" class="photo-input">
                         <div class="photo-placeholder">
                             <span class="photo-icon">+</span>
                         </div>
                     </label>
                     <label class="photo-slot" for="photo-4">
-                        <input type="file" id="photo-4" name="fotos[]" accept="image/*" class="photo-input">
+                        <input type="file" id="photo-4" name="fotos" accept="image/*" class="photo-input">
                         <div class="photo-placeholder">
                             <span class="photo-icon">+</span>
                         </div>
                     </label>
                     <label class="photo-slot" for="photo-5">
-                        <input type="file" id="photo-5" name="fotos[]" accept="image/*" class="photo-input">
+                        <input type="file" id="photo-5" name="fotos" accept="image/*" class="photo-input">
                         <div class="photo-placeholder">
                             <span class="photo-icon">+</span>
                         </div>
@@ -160,6 +160,11 @@
         </form>
     </main>
 
+    <script>
+        window.userSession = {
+            id: '<%= user && user.id ? user.id : "" %>' || null
+        };
+    </script>
     <script src="/animal.service.js">
     </script>
 </body>

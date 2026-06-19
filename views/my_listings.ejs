@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="/css/base.css">
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/my_listings.css">
@@ -35,214 +37,139 @@
             <a href="/anunciar" class="btn-primary">+ Novo anúncio</a>
         </div>
 
-        <!-- ── STATS ───────────────────────────────── -->
-        <div class="stats-row">
-            <div class="stat-card">
-                <span class="stat-number">8</span>
-                <span class="stat-label">Total</span>
-            </div>
-            <div class="stat-card stat-card--green">
-                <span class="stat-number">5</span>
-                <span class="stat-label">Disponíveis</span>
-            </div>
-            <div class="stat-card stat-card--blue">
-                <span class="stat-number">2</span>
-                <span class="stat-label">Adotados</span>
-            </div>
-            <div class="stat-card stat-card--gray">
-                <span class="stat-number">1</span>
-                <span class="stat-label">Pausados</span>
-            </div>
-        </div>
+        <% let total=0, disponiveis=0, adotados=0, pausados=0; if (animais && animais.length> 0) {
+            total = animais.length;
+            animais.forEach(a => {
+            if (a.status === 'disponivel') disponiveis++;
+            if (a.status === 'adotado') adotados++;
+            if (a.status === 'pausado') pausados++;
+            });
+            }
+            %>
 
-        <!-- ── FILTER TABS ─────────────────────────── -->
-        <div class="tab-bar">
-            <button class="tab active" data-filter="todos">Todos <span class="tab-count">8</span></button>
-            <button class="tab" data-filter="disponivel">Disponíveis <span class="tab-count">5</span></button>
-            <button class="tab" data-filter="adotado">Adotados <span class="tab-count">2</span></button>
-            <button class="tab" data-filter="pausado">Pausados <span class="tab-count">1</span></button>
-        </div>
-
-        <!-- ── LISTINGS ────────────────────────────── -->
-        <div class="listings-list">
-
-            <div class="listing-card" data-status="disponivel">
-                <a href="/animal/1" class="listing-photo-wrap">
-                    <img src="/assets/images/racas-de-cachorro-shihtzu-04.jpg" alt="Mel">
-                </a>
-                <div class="listing-info">
-                    <div class="listing-main">
-                        <div>
-                            <div class="listing-name-row">
-                                <h3>Mel</h3>
-                                <span class="status-badge status-disponivel">Disponível</span>
-                            </div>
-                            <p class="listing-meta">🐶 Shih Tzu · Fêmea · 6 meses · Pequeno porte</p>
-                            <p class="listing-date">Publicado em 12 jun. 2026</p>
-                        </div>
-                        <div class="listing-stats">
-                            <span title="Visualizações">👁 34</span>
-                            <span title="Pedidos de adoção">📋 2 pedidos</span>
-                        </div>
-                    </div>
-                    <div class="listing-actions">
-                        <a href="/animal/1/pedidos" class="action-btn action-btn--pedidos">Ver pedidos</a>
-                        <a href="/animal/1/editar" class="action-btn">Editar</a>
-                        <button class="action-btn action-btn--pause" data-id="1">Pausar</button>
-                        <button class="action-btn action-btn--delete" data-id="1">Excluir</button>
-                    </div>
+            <div class="stats-row">
+                <div class="stat-card">
+                    <span class="stat-number">
+                        <%= total %>
+                    </span>
+                    <span class="stat-label">Total</span>
+                </div>
+                <div class="stat-card stat-card--green">
+                    <span class="stat-number">
+                        <%= disponiveis %>
+                    </span>
+                    <span class="stat-label">Disponíveis</span>
+                </div>
+                <div class="stat-card stat-card--blue">
+                    <span class="stat-number">
+                        <%= adotados %>
+                    </span>
+                    <span class="stat-label">Adotados</span>
+                </div>
+                <div class="stat-card stat-card--gray">
+                    <span class="stat-number">
+                        <%= pausados %>
+                    </span>
+                    <span class="stat-label">Pausados</span>
                 </div>
             </div>
 
-            <div class="listing-card" data-status="disponivel">
-                <a href="/animal/2" class="listing-photo-wrap">
-                    <img src="/assets/images/sillycat.jpg" alt="Simba">
-                </a>
-                <div class="listing-info">
-                    <div class="listing-main">
-                        <div>
-                            <div class="listing-name-row">
-                                <h3>Simba</h3>
-                                <span class="status-badge status-disponivel">Disponível</span>
-                            </div>
-                            <p class="listing-meta">🐱 Siamês · Macho · 3 meses · Pequeno porte</p>
-                            <p class="listing-date">Publicado em 10 jun. 2026</p>
-                        </div>
-                        <div class="listing-stats">
-                            <span title="Visualizações">👁 21</span>
-                            <span title="Pedidos de adoção">📋 1 pedido</span>
-                        </div>
-                    </div>
-                    <div class="listing-actions">
-                        <a href="/animal/2/pedidos" class="action-btn action-btn--pedidos">Ver pedidos</a>
-                        <a href="/animal/2/editar" class="action-btn">Editar</a>
-                        <button class="action-btn action-btn--pause" data-id="2">Pausar</button>
-                        <button class="action-btn action-btn--delete" data-id="2">Excluir</button>
-                    </div>
-                </div>
+            <div class="tab-bar">
+                <button class="tab active" data-filter="todos">Todos <span class="tab-count">
+                        <%= total %>
+                    </span></button>
+                <button class="tab" data-filter="disponivel">Disponíveis <span class="tab-count">
+                        <%= disponiveis %>
+                    </span></button>
+                <button class="tab" data-filter="adotado">Adotados <span class="tab-count">
+                        <%= adotados %>
+                    </span></button>
+                <button class="tab" data-filter="pausado">Pausados <span class="tab-count">
+                        <%= pausados %>
+                    </span></button>
             </div>
 
-            <div class="listing-card" data-status="disponivel">
-                <a href="/animal/3" class="listing-photo-wrap">
-                    <img src="/assets/images/racas-de-cachorro-shihtzu-04.jpg" alt="Thor">
-                </a>
-                <div class="listing-info">
-                    <div class="listing-main">
-                        <div>
-                            <div class="listing-name-row">
-                                <h3>Thor</h3>
-                                <span class="status-badge status-disponivel">Disponível</span>
+            <div class="listings-list">
+                <% if (total> 0) { %>
+                    <% animais.forEach(animal=> { %>
+                        <div class="listing-card" data-status="<%= animal.status %>">
+                            <a href="/animal/<%= animal.id %>"
+                                class="listing-photo-wrap <%= animal.status === 'pausado' ? 'listing-photo-wrap--paused' : '' %>">
+                                <img src="<%= animal.url_foto || (animal.especie === 'cao' ? '/assets/images/logo_dog.webp' : '/assets/images/logo_cat.webp') %>"
+                                    alt="<%= animal.nome %>">
+                                <% if (animal.status==='adotado' ) { %>
+                                    <div class="photo-overlay">Adotado 🎉</div>
+                                    <% } %>
+                            </a>
+                            <div class="listing-info">
+                                <div class="listing-main">
+                                    <div>
+                                        <div class="listing-name-row">
+                                            <h3>
+                                                <%= animal.nome || 'Sem nome' %>
+                                            </h3>
+                                            <span class="status-badge status-<%= animal.status %>">
+                                                <%= animal.status==='disponivel' ? 'Disponível' :
+                                                    (animal.status==='adotado' ? 'Adotado' : 'Pausado' ) %>
+                                            </span>
+                                        </div>
+                                        <p class="listing-meta">
+                                            <%= animal.especie==='cao' ? '🐶 Cão' : '🐱 Gato' %> ·
+                                                <%= animal.sexo==='macho' ? 'Macho' : 'Fêmea' %> ·
+                                                    <%= animal.idade_meses ? animal.idade_meses + ' meses' : 'Idade N/A'
+                                                        %> ·
+                                                        Porte <%= animal.porte %>
+                                        </p>
+                                        <p class="listing-date">
+                                            <% // Formata a data bonitinha, ex: 12 jun. 2026 const
+                                                dataStr=animal.data_anuncio ? new
+                                                Date(animal.data_anuncio).toLocaleDateString('pt-BR', {day: 'numeric' ,
+                                                month: 'short' , year: 'numeric' }) : '' ; %>
+                                                <%= animal.status==='adotado' ? 'Adotado em' : 'Publicado em' %>
+                                                    <%= dataStr %>
+                                        </p>
+                                    </div>
+                                    <div class="listing-stats">
+                                        <span title="Visualizações">👁 --</span>
+                                        <span title="Pedidos de adoção">📋 --</span>
+                                    </div>
+                                </div>
+                                <div class="listing-actions">
+                                    <% if (animal.status==='adotado' ) { %>
+                                        <a href="/animal/<%= animal.id %>/pedidos" class="action-btn">Ver histórico</a>
+                                        <button class="action-btn action-btn--delete"
+                                            data-id="<%= animal.id %>">Excluir</button>
+                                        <% } else { %>
+                                            <a href="/animal/<%= animal.id %>/pedidos"
+                                                class="action-btn action-btn--pedidos">Ver pedidos</a>
+                                            <a href="/animal/<%= animal.id %>/editar" class="action-btn">Editar</a>
+
+                                            <% if (animal.status==='disponivel' ) { %>
+                                                <button class="action-btn action-btn--pause"
+                                                    data-id="<%= animal.id %>">Pausar</button>
+                                                <% } else if (animal.status==='pausado' ) { %>
+                                                    <button class="action-btn action-btn--activate"
+                                                        data-id="<%= animal.id %>">Reativar</button>
+                                                    <% } %>
+
+                                                        <button class="action-btn action-btn--delete"
+                                                            data-id="<%= animal.id %>">Excluir</button>
+                                                        <% } %>
+                                </div>
                             </div>
-                            <p class="listing-meta">🐶 Labrador · Macho · 18 meses · Grande porte</p>
-                            <p class="listing-date">Publicado em 8 jun. 2026</p>
                         </div>
-                        <div class="listing-stats">
-                            <span title="Visualizações">👁 57</span>
-                            <span title="Pedidos de adoção">📋 4 pedidos</span>
-                        </div>
-                    </div>
-                    <div class="listing-actions">
-                        <a href="/animal/3/pedidos" class="action-btn action-btn--pedidos">Ver pedidos</a>
-                        <a href="/animal/3/editar" class="action-btn">Editar</a>
-                        <button class="action-btn action-btn--pause" data-id="3">Pausar</button>
-                        <button class="action-btn action-btn--delete" data-id="3">Excluir</button>
-                    </div>
-                </div>
+                        <% }) %>
+                            <% } %>
             </div>
 
-            <div class="listing-card" data-status="adotado">
-                <a href="/animal/4" class="listing-photo-wrap">
-                    <img src="/assets/images/sillycat.jpg" alt="Luna">
-                    <div class="photo-overlay">Adotado 🎉</div>
-                </a>
-                <div class="listing-info">
-                    <div class="listing-main">
-                        <div>
-                            <div class="listing-name-row">
-                                <h3>Luna</h3>
-                                <span class="status-badge status-adotado">Adotado</span>
-                            </div>
-                            <p class="listing-meta">🐱 Persa · Fêmea · 24 meses · Médio porte</p>
-                            <p class="listing-date">Adotada em 5 jun. 2026</p>
-                        </div>
-                        <div class="listing-stats">
-                            <span title="Visualizações">👁 93</span>
-                            <span title="Pedidos de adoção">📋 6 pedidos</span>
-                        </div>
-                    </div>
-                    <div class="listing-actions">
-                        <a href="/animal/4/pedidos" class="action-btn">Ver histórico</a>
-                        <button class="action-btn action-btn--delete" data-id="4">Excluir</button>
-                    </div>
-                </div>
+            <div class="empty-state" id="empty-state" <%=total===0 ? 'style="display: flex;"' : 'style="display: none;"'
+                %>> <span class="empty-icon">🐾</span>
+                <p>Nenhum anúncio nessa categoria.</p>
+                <a href="/anunciar" class="btn-primary">Criar anúncio</a>
             </div>
-
-            <div class="listing-card" data-status="adotado">
-                <a href="/animal/5" class="listing-photo-wrap">
-                    <img src="/assets/images/racas-de-cachorro-shihtzu-04.jpg" alt="Bolt">
-                    <div class="photo-overlay">Adotado 🎉</div>
-                </a>
-                <div class="listing-info">
-                    <div class="listing-main">
-                        <div>
-                            <div class="listing-name-row">
-                                <h3>Bolt</h3>
-                                <span class="status-badge status-adotado">Adotado</span>
-                            </div>
-                            <p class="listing-meta">🐶 Border Collie · Macho · 12 meses · Médio porte</p>
-                            <p class="listing-date">Adotado em 1 jun. 2026</p>
-                        </div>
-                        <div class="listing-stats">
-                            <span title="Visualizações">👁 112</span>
-                            <span title="Pedidos de adoção">📋 8 pedidos</span>
-                        </div>
-                    </div>
-                    <div class="listing-actions">
-                        <a href="/animal/5/pedidos" class="action-btn">Ver histórico</a>
-                        <button class="action-btn action-btn--delete" data-id="5">Excluir</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="listing-card" data-status="pausado">
-                <a href="/animal/6" class="listing-photo-wrap listing-photo-wrap--paused">
-                    <img src="/assets/images/sillycat.jpg" alt="Nala">
-                </a>
-                <div class="listing-info">
-                    <div class="listing-main">
-                        <div>
-                            <div class="listing-name-row">
-                                <h3>Nala</h3>
-                                <span class="status-badge status-pausado">Pausado</span>
-                            </div>
-                            <p class="listing-meta">🐱 Ragdoll · Fêmea · 36 meses · Médio porte</p>
-                            <p class="listing-date">Pausado em 15 mai. 2026</p>
-                        </div>
-                        <div class="listing-stats">
-                            <span title="Visualizações">👁 8</span>
-                            <span title="Pedidos de adoção">📋 0 pedidos</span>
-                        </div>
-                    </div>
-                    <div class="listing-actions">
-                        <button class="action-btn action-btn--activate" data-id="6">Reativar</button>
-                        <a href="/animal/6/editar" class="action-btn">Editar</a>
-                        <button class="action-btn action-btn--delete" data-id="6">Excluir</button>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-        <!-- ── EMPTY STATE (hidden by default) ────── -->
-        <div class="empty-state" id="empty-state" style="display:none;">
-            <span class="empty-icon">🐾</span>
-            <p>Nenhum anúncio nessa categoria.</p>
-            <a href="/cadastro" class="btn-primary">Criar anúncio</a>
-        </div>
 
     </main>
 
-    <!-- ── CONFIRM DELETE MODAL ────────────────── -->
     <div class="modal-backdrop" id="modal-backdrop">
         <div class="modal">
             <h3>Excluir anúncio?</h3>
@@ -255,10 +182,10 @@
     </div>
 
     <script>
-        // ── TAB FILTER ──────────────────────────────────
-        const tabs    = document.querySelectorAll('.tab');
-        const cards   = document.querySelectorAll('.listing-card');
-        const empty   = document.getElementById('empty-state');
+        // ── LÓGICA DAS ABAS (Filtros) ───────────────────
+        const tabs = document.querySelectorAll('.tab');
+        const cards = document.querySelectorAll('.listing-card');
+        const empty = document.getElementById('empty-state');
 
         tabs.forEach(tab => {
             tab.addEventListener('click', () => {
@@ -278,9 +205,9 @@
             });
         });
 
-        // ── DELETE MODAL ────────────────────────────────
+        // ── MODAL DE EXCLUSÃO (Agora conectado ao Backend) ──
         const backdrop = document.getElementById('modal-backdrop');
-        let pendingId  = null;
+        let pendingId = null;
 
         document.querySelectorAll('.action-btn--delete').forEach(btn => {
             btn.addEventListener('click', () => {
@@ -294,38 +221,89 @@
             pendingId = null;
         });
 
-        document.getElementById('modal-confirm').addEventListener('click', () => {
+        document.getElementById('modal-confirm').addEventListener('click', async () => {
             if (pendingId) {
-                const card = document.querySelector(`.action-btn--delete[data-id="${pendingId}"]`).closest('.listing-card');
-                card.style.animation = 'fadeOut 0.3s ease forwards';
-                setTimeout(() => card.remove(), 300);
+                // Trocando o texto do botão para mostrar que está carregando
+                const btnConfirm = document.getElementById('modal-confirm');
+                btnConfirm.textContent = 'Excluindo...';
+                
+                try {
+                    // Chama a rota DELETE no Node.js
+                    const resposta = await fetch(`/api/animais/${pendingId}`, { method: 'DELETE' });
+                    const resultado = await resposta.json();
+
+                    if (resultado.success) {
+                        const card = document.querySelector(`.action-btn--delete[data-id="${pendingId}"]`).closest('.listing-card');
+                        if (card) {
+                            card.style.animation = 'fadeOut 0.3s ease forwards';
+                            setTimeout(() => {
+                                card.remove();
+                                window.location.reload(); // Recarrega para atualizar os números do topo
+                            }, 300);
+                        }
+                    } else {
+                        alert('Erro ao excluir: ' + resultado.erro);
+                    }
+                } catch (error) {
+                    alert('Erro de conexão ao tentar excluir o anúncio.');
+                }
+                btnConfirm.textContent = 'Sim, excluir';
             }
             backdrop.classList.remove('active');
             pendingId = null;
         });
 
-        // ── PAUSE / REACTIVATE ──────────────────────────
+        // ── BOTÃO PAUSAR (Conectado ao Backend) ────────
         document.querySelectorAll('.action-btn--pause').forEach(btn => {
-            btn.addEventListener('click', () => {
-                const card = btn.closest('.listing-card');
-                card.dataset.status = 'pausado';
-                card.querySelector('.status-badge').textContent  = 'Pausado';
-                card.querySelector('.status-badge').className    = 'status-badge status-pausado';
-                card.querySelector('.listing-photo-wrap').classList.add('listing-photo-wrap--paused');
-                btn.className   = 'action-btn action-btn--activate';
-                btn.textContent = 'Reativar';
+            btn.addEventListener('click', async () => {
+                const animalId = btn.dataset.id;
+                btn.textContent = 'Pausando...'; // Feedback visual
+
+                try {
+                    const resposta = await fetch(`/api/animais/${animalId}/status`, {
+                        method: 'PUT',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ status: 'pausado' })
+                    });
+                    const resultado = await resposta.json();
+
+                    if (resultado.success) {
+                        window.location.reload(); // Atualiza a tela para mudar de aba e contadores
+                    } else {
+                        alert('Erro ao pausar: ' + resultado.erro);
+                        btn.textContent = 'Pausar';
+                    }
+                } catch (error) {
+                    alert('Erro de conexão.');
+                    btn.textContent = 'Pausar';
+                }
             });
         });
 
+        // ── BOTÃO REATIVAR (Conectado ao Backend) ──────
         document.querySelectorAll('.action-btn--activate').forEach(btn => {
-            btn.addEventListener('click', () => {
-                const card = btn.closest('.listing-card');
-                card.dataset.status = 'disponivel';
-                card.querySelector('.status-badge').textContent  = 'Disponível';
-                card.querySelector('.status-badge').className    = 'status-badge status-disponivel';
-                card.querySelector('.listing-photo-wrap').classList.remove('listing-photo-wrap--paused');
-                btn.className   = 'action-btn action-btn--pause';
-                btn.textContent = 'Pausar';
+            btn.addEventListener('click', async () => {
+                const animalId = btn.dataset.id;
+                btn.textContent = 'Reativando...'; // Feedback visual
+
+                try {
+                    const resposta = await fetch(`/api/animais/${animalId}/status`, {
+                        method: 'PUT',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ status: 'disponivel' })
+                    });
+                    const resultado = await resposta.json();
+
+                    if (resultado.success) {
+                        window.location.reload(); // Atualiza a tela para mudar de aba e contadores
+                    } else {
+                        alert('Erro ao reativar: ' + resultado.erro);
+                        btn.textContent = 'Reativar';
+                    }
+                } catch (error) {
+                    alert('Erro de conexão.');
+                    btn.textContent = 'Reativar';
+                }
             });
         });
     </script>

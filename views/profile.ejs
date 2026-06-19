@@ -23,28 +23,28 @@
             <a class="switch_page" href="/caes">🐶 Cães</a>
             <a href="/meus_anuncios">Meus anúncios</a>
             <a href="/anunciar" class="nav-cta">+ Anunciar</a>
+            <a href="/logout" style="color: #DC2626; font-weight: 600; margin-left: 1rem;">Sair</a>
         </nav>
     </header>
 
     <main>
         <div class="profile-layout">
 
-            <!-- ── SIDEBAR ──────────────────────────── -->
             <aside class="profile-card">
                 <div class="avatar-wrap">
-                    <div class="avatar">LG</div>
+                    <div class="avatar"><%= user.nome.substring(0, 2).toUpperCase() %></div>
                 </div>
-                <h2 class="profile-name">Luiz Gustavo Carvalho de Brito</h2>
-                <p class="profile-email">luizex@gmail.com</p>
-                <p class="profile-since">Membro desde mar. 2026 · DF</p>
+                <h2 class="profile-name"><%= user.nome %></h2>
+                <p class="profile-email"><%= user.email %></p>
+                <p class="profile-since">Membro LatMia · <%= user.estado || 'DF' %></p>
 
                 <div class="profile-stats">
                     <div class="profile-stat">
-                        <span class="profile-stat-number">3</span>
+                        <span class="profile-stat-number"><%= totalAnuncios %></span>
                         <span class="profile-stat-label">Anúncios ativos</span>
                     </div>
                     <div class="profile-stat">
-                        <span class="profile-stat-number">2</span>
+                        <span class="profile-stat-number"><%= pedidos.length %></span>
                         <span class="profile-stat-label">Pedidos enviados</span>
                     </div>
                 </div>
@@ -68,52 +68,29 @@
                         <div class="field-row">
                             <div class="field-group">
                                 <label class="field-label" for="nome">Nome completo</label>
-                                <input type="text" id="nome" class="field-input" value="Luiz Gustavo Carvalho de Brito">
+                                <input type="text" id="nome" name="nome" class="field-input" value="<%= user.nome %>">
                             </div>
                         </div>
 
                         <div class="field-row">
                             <div class="field-group">
                                 <label class="field-label" for="email">Email</label>
-                                <input type="email" id="email" class="field-input" value="luizex@gmail.com">
+                                <input type="email" id="email" class="field-input" value="<%= user.email %>" readonly style="background: #f3f4f6; cursor: not-allowed;" title="O email não pode ser alterado">
                             </div>
                             <div class="field-group">
                                 <label class="field-label" for="telefone">Telefone</label>
-                                <input type="tel" id="telefone" class="field-input" value="(61) 99876-5432">
+                                <input type="tel" id="telefone" name="telefone" class="field-input" value="<%= user.telefone || '' %>">
                             </div>
                         </div>
 
                         <div class="field-row">
                             <div class="field-group field-group--narrow">
                                 <label class="field-label" for="estado">Estado</label>
-                                <select id="estado" class="field-input">
-                                    <option value="AC">AC</option>
-                                    <option value="AL">AL</option>
-                                    <option value="AP">AP</option>
-                                    <option value="AM">AM</option>
-                                    <option value="BA">BA</option>
-                                    <option value="CE">CE</option>
-                                    <option value="DF" selected>DF</option>
-                                    <option value="ES">ES</option>
-                                    <option value="GO">GO</option>
-                                    <option value="MA">MA</option>
-                                    <option value="MT">MT</option>
-                                    <option value="MS">MS</option>
-                                    <option value="MG">MG</option>
-                                    <option value="PA">PA</option>
-                                    <option value="PB">PB</option>
-                                    <option value="PR">PR</option>
-                                    <option value="PE">PE</option>
-                                    <option value="PI">PI</option>
-                                    <option value="RJ">RJ</option>
-                                    <option value="RN">RN</option>
-                                    <option value="RS">RS</option>
-                                    <option value="RO">RO</option>
-                                    <option value="RR">RR</option>
-                                    <option value="SC">SC</option>
-                                    <option value="SP">SP</option>
-                                    <option value="SE">SE</option>
-                                    <option value="TO">TO</option>
+                                <select id="estado" name="estado" class="field-input">
+                                    <% const estados = ['AC','AL','AP','AM','BA','CE','DF','ES','GO','MA','MT','MS','MG','PA','PB','PR','PE','PI','RJ','RN','RS','RO','RR','SC','SP','SE','TO']; %>
+                                    <% estados.forEach(est => { %>
+                                        <option value="<%= est %>" <%= user.estado === est ? 'selected' : '' %>><%= est %></option>
+                                    <% }) %>
                                 </select>
                             </div>
                         </div>
@@ -127,14 +104,12 @@
                 <div class="tab-panel" id="tab-seguranca">
                     <section class="form-section">
                         <h2 class="section-title">Alterar senha</h2>
-
                         <div class="field-row">
                             <div class="field-group">
                                 <label class="field-label" for="senha-atual">Senha atual</label>
                                 <input type="password" id="senha-atual" class="field-input" placeholder="••••••••">
                             </div>
                         </div>
-
                         <div class="field-row">
                             <div class="field-group">
                                 <label class="field-label" for="senha-nova">Nova senha</label>
@@ -145,16 +120,9 @@
                                 <input type="password" id="senha-confirma" class="field-input" placeholder="••••••••">
                             </div>
                         </div>
-
                         <div class="form-actions">
                             <button type="button" class="btn-primary">Atualizar senha</button>
                         </div>
-                    </section>
-
-                    <section class="form-section form-section--danger">
-                        <h2 class="section-title">Excluir conta</h2>
-                        <p class="section-hint">Essa ação é permanente. Seus anúncios e pedidos de adoção serão removidos e não poderão ser recuperados.</p>
-                        <button type="button" class="action-btn action-btn--delete">Excluir minha conta</button>
                     </section>
                 </div>
 
@@ -163,47 +131,32 @@
                         <h2 class="section-title">Pedidos de adoção enviados</h2>
 
                         <div class="pedido-list">
-
-                            <div class="pedido-row">
-                                <img class="pedido-photo" src="/assets/images/racas-de-cachorro-shihtzu-04.jpg" alt="Bolt">
-                                <div class="pedido-info">
-                                    <h3>Bolt</h3>
-                                    <p class="pedido-meta">Border Collie · Curitiba, PR</p>
-                                    <p class="pedido-date">Enviado em 14 jun. 2026</p>
+                            <% if (pedidos && pedidos.length > 0) { %>
+                                <% pedidos.forEach(pedido => { %>
+                                    <div class="pedido-row">
+                                        <img class="pedido-photo" src="<%= pedido.url_foto || (pedido.especie === 'cao' ? '/assets/images/logo_dog.webp' : '/assets/images/logo_cat.webp') %>" alt="<%= pedido.animal_nome %>">
+                                        <div class="pedido-info">
+                                            <h3><%= pedido.animal_nome %></h3>
+                                            <p class="pedido-meta"><%= pedido.especie === 'cao' ? 'Cão' : 'Gato' %> · <%= pedido.animal_estado || 'DF' %></p>
+                                            <p class="pedido-date">
+                                                Enviado em <%= new Date(pedido.data_criacao).toLocaleDateString('pt-BR', {day: 'numeric', month: 'short', year: 'numeric'}) %>
+                                            </p>
+                                        </div>
+                                        
+                                        <% let badgeClass = 'status-pendente'; let badgeText = 'Pendente'; %>
+                                        <% if (pedido.status_adocao === 'aprovado') { badgeClass = 'status-aprovado'; badgeText = 'Aprovado'; } %>
+                                        <% if (pedido.status_adocao === 'recusado') { badgeClass = 'status-recusado'; badgeText = 'Recusado'; } %>
+                                        <% if (pedido.status_adocao === 'em_analise') { badgeClass = 'status-em_analise'; badgeText = 'Em análise'; } %>
+                                        
+                                        <span class="status-badge <%= badgeClass %>"><%= badgeText %></span>
+                                    </div>
+                                <% }) %>
+                            <% } else { %>
+                                <div style="text-align: center; padding: 2rem; color: #6B7280;">
+                                    <p>Você ainda não enviou nenhum pedido de adoção. 🐾</p>
+                                    <a href="/caes" style="color: var(--color-blue); font-weight: 600; text-decoration: none;">Ver cães disponíveis</a>
                                 </div>
-                                <span class="status-badge status-em_analise">Em análise</span>
-                            </div>
-
-                            <div class="pedido-row">
-                                <img class="pedido-photo" src="/assets/images/sillycat.jpg" alt="Nala">
-                                <div class="pedido-info">
-                                    <h3>Nala</h3>
-                                    <p class="pedido-meta">Ragdoll · Porto Alegre, RS</p>
-                                    <p class="pedido-date">Enviado em 2 jun. 2026</p>
-                                </div>
-                                <span class="status-badge status-aprovado">Aprovado</span>
-                            </div>
-
-                            <div class="pedido-row">
-                                <img class="pedido-photo" src="/assets/images/racas-de-cachorro-shihtzu-04.jpg" alt="Thor">
-                                <div class="pedido-info">
-                                    <h3>Thor</h3>
-                                    <p class="pedido-meta">Labrador · Rio de Janeiro, RJ</p>
-                                    <p class="pedido-date">Enviado em 28 mai. 2026</p>
-                                </div>
-                                <span class="status-badge status-recusado">Recusado</span>
-                            </div>
-
-                            <div class="pedido-row">
-                                <img class="pedido-photo" src="/assets/images/sillycat.jpg" alt="Simba">
-                                <div class="pedido-info">
-                                    <h3>Simba</h3>
-                                    <p class="pedido-meta">Siamês · São Paulo, SP</p>
-                                    <p class="pedido-date">Enviado em 20 mai. 2026</p>
-                                </div>
-                                <span class="status-badge status-pendente">Pendente</span>
-                            </div>
-
+                            <% } %>
                         </div>
                     </section>
                 </div>
